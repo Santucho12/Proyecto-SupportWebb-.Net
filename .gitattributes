@@ -1,2 +1,4 @@
 *.cs linguist-language=C#
 *.html linguist-documentation
+Views/**/*.cshtml linguist-documentation
+wwwroot/**/*.html linguist-documentation
