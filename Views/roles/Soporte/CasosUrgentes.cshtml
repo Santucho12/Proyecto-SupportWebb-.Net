@@ -1,0 +1,483 @@
+@model SupportWeb.Models.ViewModels.Soporte.CasosUrgentesViewModel
+@{
+    ViewData["Title"] = "Casos Urgentes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid dashboard-urgentes">
+    <!-- Header del Panel de Casos Urgentes -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 text-danger fw-bold">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Panel de Casos Urgentes
+                    </h1>
+                    <p class="text-muted mb-0">Atención prioritaria inmediata - @Model.UsuarioNombre</p>
+                    <small class="text-muted">Gestión de casos críticos y de alta prioridad</small>
+                </div>
+                <div class="text-end">
+                        <button class="btn btn-outline-secondary btn-xs me-2 border-gray" style="border-color: #6c757d !important; font-size: 0.92rem; padding: 0.25rem 0.7rem;" onclick="window.location.href='/Soporte/Dashboard'">
+                            <i class="bi bi-arrow-left me-1"></i>Volver
+                        </button>
+                        <button class="btn btn-outline-secondary btn-xs border-gray" style="border-color: #6c757d !important; font-size: 0.92rem; padding: 0.25rem 0.7rem;" onclick="refreshUrgentes()">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Actualizar
+                        </button>
+                        <span class="badge bg-danger ms-2" id="badgeUrgentes">@Model.TotalUrgentes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas de Urgencia -->
+    <div class="row mb-4">
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card stats-card bg-white border shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title mb-1 text-danger">Total Urgentes</h5>
+                                <h2 class="mb-0 fw-bold text-danger">@Model.TotalUrgentes</h2>
+                                <small class="opacity-75 text-danger">Requieren atención</small>
+                            </div>
+                            <div class="stats-icon">
+                                <i class="fas fa-fire fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card stats-card bg-white border shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title mb-1 text-danger">Sin responder</h5>
+                                <h2 class="mb-0 fw-bold text-danger">@Model.UrgentesNuevos</h2>
+                                <small class="opacity-75 text-danger">Atencion urgente</small>
+                            </div>
+                            <div class="stats-icon">
+                                <i class="fas fa-plus-circle fa-2x text-danger"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 mb-3">
+                <div class="card stats-card bg-white border shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="card-title mb-1 text-success">Tiempo Promedio</h5>
+                                <h2 class="mb-0 fw-bold text-success">@Model.TiempoPromedioAtencion.ToString("F1")h</h2>
+                                <small class="opacity-75 text-success">Tiempo de atención</small>
+                            </div>
+                            <div class="stats-icon">
+                                <i class="fas fa-stopwatch fa-2x text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+    <!-- Tabla de Casos Urgentes -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-fire me-2 text-danger"></i>Casos Urgentes Activos
+                    </h5>
+                    <div class="d-flex gap-2">
+                        <select class="form-select form-select-sm" id="filtroUrgencia" onchange="filtrarCasos()">
+                            <option value="todos">Todos los urgentes</option>
+                            <option value="criticos">Solo críticos</option>
+                            <option value="nuevos">Nuevos únicamente</option>
+                            <option value="proceso">En proceso</option>
+                        </select>
+                        <button class="btn btn-danger btn-sm" onclick="marcarCriticos()">
+                            <i class="fas fa-flag me-1"></i>Marcar críticos
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0" id="tablaUrgentes">
+                            <thead class="table-danger">
+                                <tr>
+                                        <!-- Columna de selección eliminada -->
+                                        <th>ID</th>
+                                        <th>Título</th>
+                                        <th>Estado</th>
+                                        <th>Usuario</th>
+                                        <th>Tiempo Crítico</th>
+                                        <th></th>
+                                        <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.CasosUrgentes.Any())
+                                {
+                                    @foreach (var caso in Model.CasosUrgentes.OrderByDescending(c => c.FechaCreacion))
+                                    {
+                                        var fechaCreacionLocal = caso.FechaCreacion.AddHours(-3); // Ajuste de zona horaria
+                                        var tiempoCritico = DateTime.Now.AddHours(-3) - fechaCreacionLocal;
+                                        var slaExcedido = tiempoCritico.TotalHours > 4; // SLA de 4 horas para urgentes
+                                        var claseCriticidad = slaExcedido ? "table-danger" :
+                                                            tiempoCritico.TotalHours > 2 ? "table-warning" : "";
+
+                                        <tr class="@claseCriticidad caso-urgente" data-criticidad="@(slaExcedido ? "critico" : "normal")">
+                                            <!-- Columna de selección eliminada -->
+                                            <td>
+                                                    <span class="badge bg-secondary text-white fw-bold">
+                                                        #@caso.Id.ToString().Substring(0, 8)
+                                                    </span>
+                                                @if (slaExcedido)
+                                                {
+                                                    <i class="fas fa-exclamation-triangle text-danger ms-1" title="SLA excedido"></i>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="fw-bold text-danger">@caso.Titulo</div>
+                                                <small class="text-muted">@caso.Descripcion.Substring(0, Math.Min(60, caso.Descripcion.Length))...</small>
+                                                @if (slaExcedido)
+                                                {
+                                                    <div><span class="badge bg-danger">CRÍTICO - TIEMPO EXCEDIDO</span></div>
+                                                }
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var estadoBadge = caso.Estado switch
+                                                    {
+                                                        "Nuevo" => "bg-danger",
+                                                        "EnProceso" => "bg-info",
+                                                        "Respondido" => "bg-primary",
+                                                        _ => "bg-secondary"
+                                                    };
+                                                }
+                                                <span class="badge @estadoBadge">@caso.Estado</span>
+                                            </td>
+                                            <td>
+                                                <div class="fw-semibold">@(caso.UsuarioNombre ?? "Usuario")</div>
+                                                <small class="text-muted">@fechaCreacionLocal.ToString("dd/MM HH:mm")</small>
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var tiempoTexto = tiempoCritico.TotalDays >= 1 ?
+                                                        $"{(int)tiempoCritico.TotalDays}d {tiempoCritico.Hours}h" :
+                                                        $"{tiempoCritico.Hours}h {tiempoCritico.Minutes}m";
+                                                    var tiempoClase = slaExcedido ? "text-danger fw-bold blink" :
+                                                                     tiempoCritico.TotalHours > 2 ? "text-warning fw-bold" : "text-success";
+                                                }
+                                                <span class="@tiempoClase">@tiempoTexto</span>
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var slaRestante = 4 - tiempoCritico.TotalHours;
+                                                    var slaTexto = slaRestante > 0 ? $"{slaRestante:F1}h restantes" : "EXCEDIDO";
+                                                    var slaClase = slaRestante <= 0 ? "text-danger fw-bold" :
+                                                                  slaRestante <= 1 ? "text-warning" : "text-success";
+                                                }
+                                                    <!-- SLA column removed -->
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm">
+                                                    <a href="/Soporte/DetalleReclamo/@caso.Id" class="btn btn-outline-secondary btn-sm" title="Ver detalles">
+                                                        <i class="fas fa-eye"></i> Ver detalles
+                                                    </a>
+                                                    <a href="/Soporte/NuevaRespuestaPorId/@caso.Id" class="btn btn-outline-danger btn-sm ms-1" title="Responder">
+                                                        <i class="fas fa-reply"></i> Responder
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted py-4">
+                                            <i class="fas fa-check-circle fa-2x mb-2 text-success"></i>
+                                            <br>¡Excelente! No hay casos urgentes pendientes
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos específicos para casos urgentes -->
+<style>
+.dashboard-urgentes {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.stats-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bg-gradient-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #343a40, #23272b);
+}
+
+
+/* --- Mejora visual de botones de acción principales --- */
+.action-btn {
+    padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+    text-align: center;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    color: #fff !important;
+    background: linear-gradient(135deg, #28a745 60%, #218838 100%);
+    transition: all 0.2s cubic-bezier(.4,2,.3,1);
+}
+.action-btn.btn-primary {
+    background: linear-gradient(135deg, #007bff 60%, #0056b3 100%);
+    color: #fff !important;
+    border-color: #0056b3;
+}
+.action-btn.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 60%, #343a40 100%);
+    color: #fff !important;
+    border-color: #343a40;
+}
+.action-btn.btn-success {
+    background: linear-gradient(135deg, #28a745 60%, #218838 100%);
+    color: #fff !important;
+    border-color: #218838;
+}
+.action-btn:hover, .action-btn:focus {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 20px rgba(40,167,69,0.18), 0 2px 8px rgba(0,0,0,0.10);
+    filter: brightness(1.08);
+    outline: none;
+}
+.action-btn i {
+    font-size: 2.1rem;
+    margin-bottom: 0.3rem;
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.action-btn .fa-list { color: #b3e0ff !important; }
+.action-btn .fa-chart-line { color: #f8d7da !important; }
+.action-btn .fa-list { color: #b3e0ff !important; }
+.action-btn .fa-chart-line { color: #f8d7da !important; }
+
+/* Mejor contraste para los botones secundarios */
+.btn-outline-danger, .btn-outline-secondary, .btn-outline-primary {
+    font-weight: 600;
+    border-width: 2px;
+    font-size: 1rem;
+}
+
+.urgentes-actions {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-danger td {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.table-warning td {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+@@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.5; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+.urgente-checkbox:checked {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#badgeUrgentes {
+    animation: pulse 2s infinite;
+}
+
+@@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+</style>
+
+<script>
+function refreshUrgentes() {
+    location.reload();
+}
+
+function toggleSelectAllUrgentes() {
+    const selectAll = document.getElementById('selectAllUrgentes');
+    const checkboxes = document.querySelectorAll('.urgente-checkbox');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = selectAll.checked;
+    });
+}
+
+function filtrarCasos() {
+    const filtro = document.getElementById('filtroUrgencia').value;
+    const filas = document.querySelectorAll('.caso-urgente');
+
+    filas.forEach(fila => {
+        let mostrar = true;
+
+        switch(filtro) {
+            case 'criticos':
+                mostrar = fila.dataset.criticidad === 'critico';
+                break;
+            case 'nuevos':
+                mostrar = fila.querySelector('.badge').textContent === 'Nuevo';
+                break;
+            case 'proceso':
+                mostrar = fila.querySelector('.badge').textContent === 'EnProceso';
+                break;
+            default: // todos
+                mostrar = true;
+        }
+
+        fila.style.display = mostrar ? '' : 'none';
+    });
+}
+
+function asignarTodosUrgentes() {
+    const checkboxes = document.querySelectorAll('.urgente-checkbox:checked');
+    if (checkboxes.length === 0) {
+        alert('Selecciona al menos un caso urgente');
+        return;
+    }
+
+    if (confirm(`¿Asignar ${checkboxes.length} casos urgentes a tu usuario?`)) {
+        const ids = Array.from(checkboxes).map(cb => cb.value);
+        console.log('Asignando casos urgentes:', ids);
+        alert(`${ids.length} casos urgentes asignados correctamente`);
+        location.reload();
+    }
+}
+
+function escalarCasos() {
+    const checkboxes = document.querySelectorAll('.urgente-checkbox:checked');
+    if (checkboxes.length === 0) {
+        alert('Selecciona al menos un caso para escalar');
+        return;
+    }
+
+    if (confirm(`¿Escalar ${checkboxes.length} casos al nivel superior?`)) {
+        const ids = Array.from(checkboxes).map(cb => cb.value);
+        console.log('Escalando casos:', ids);
+        alert(`${ids.length} casos escalados al supervisor`);
+    }
+}
+
+function notificarSupervisor() {
+    alert('Notificación enviada al supervisor sobre casos urgentes pendientes');
+}
+
+function respuestaRapida() {
+    const checkboxes = document.querySelectorAll('.urgente-checkbox:checked');
+    if (checkboxes.length === 0) {
+        alert('Selecciona un caso para respuesta rápida');
+        return;
+    }
+    if (checkboxes.length > 1) {
+        alert('Selecciona solo un caso para respuesta rápida');
+        return;
+    }
+    const id = checkboxes[0].value;
+    // Validar que el id existe en la tabla (por si hay un error de sincronización)
+    const fila = document.querySelector(`tr input.urgente-checkbox[value='${id}']`);
+    if (!fila) {
+        alert('El reclamo seleccionado ya no existe o fue eliminado. Actualiza la página.');
+        return;
+    }
+    window.location.href = `/Soporte/NuevaRespuestaPorId/${id}`;
+}
+
+function marcarCriticos() {
+    const checkboxes = document.querySelectorAll('.urgente-checkbox');
+    const criticos = document.querySelectorAll('[data-criticidad="critico"] .urgente-checkbox');
+
+    criticos.forEach(checkbox => {
+        checkbox.checked = true;
+    });
+
+    alert(`${criticos.length} casos críticos seleccionados`);
+}
+
+function escalarCaso(id) {
+    if (confirm('¿Escalar este caso al nivel superior?')) {
+        console.log('Escalando caso:', id);
+        alert('Caso escalado correctamente');
+    }
+}
+
+// Auto-refresh cada 30 segundos para casos urgentes
+setInterval(function() {
+    if (document.visibilityState === 'visible') {
+        refreshUrgentes();
+    }
+}, 30000);
+
+// Sonido de alerta para casos críticos (simulado)
+document.addEventListener('DOMContentLoaded', function() {
+    const casosCriticos = document.querySelectorAll('[data-criticidad="critico"]');
+    if (casosCriticos.length > 0) {
+        console.log(`⚠️ ALERTA: ${casosCriticos.length} casos críticos requieren atención inmediata`);
+    }
+});
+//hasta aqui
+</script>

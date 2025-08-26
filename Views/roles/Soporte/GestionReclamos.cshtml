@@ -1,0 +1,718 @@
+@model SupportWeb.Models.ViewModels.Soporte.GestionReclamosViewModel
+@{
+    ViewData["Title"] = "Gestión de Reclamos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid gestion-reclamos">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 text-primary fw-bold">
+                        <i class="bi bi-kanban me-2"></i>Gestión de Reclamos
+                    </h1>
+                    <p class="text-muted mb-0">Panel completo de administración y seguimiento</p>
+                    <small class="text-muted">Gestiona todos los reclamos del sistema</small>
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-outline-primary btn-sm" onclick="refreshGestion()">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Actualizar
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="exportarReporte()">
+                        <i class="bi bi-download me-1"></i>Exportar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas Principales -->
+    <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+            <div class="card stats-card bg-gradient-primary">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Total Reclamos</h6>
+                            <h2 class="fw-bold">@Model.TotalReclamos</h2>
+                            <small class="opacity-75">Todos los registros</small>
+                        </div>
+                        <div class="stats-icon">
+                            <i class="bi bi-clipboard-data fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="col-md-4 mb-3">
+            <div class="card stats-card bg-gradient-info">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">En Proceso</h6>
+                            <h2 class="fw-bold">@Model.TodosLosReclamos.Count(r => r.Estado == "EnProceso" || r.Estado == "Respondido")</h2>
+                            <small class="opacity-75">En trabajo</small>
+                        </div>
+                        <div class="stats-icon">
+                            <i class="bi bi-gear fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-md-4 mb-3">
+            <div class="card stats-card bg-gradient-success">
+                <div class="card-body text-white">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h6 class="card-title">Resueltos</h6>
+                            <h2 class="fw-bold">@Model.ReclamosCerrados.Count</h2>
+                            <small class="opacity-75">Completados</small>
+                        </div>
+                        <div class="stats-icon">
+                            <i class="bi bi-check-circle fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas por Período y Prioridad -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-calendar3 me-2"></i>Estadísticas por Período
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-primary fw-bold">@Model.ReclamosHoy</h4>
+                                <p class="text-muted mb-0">Hoy</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-info fw-bold">@Model.ReclamosSemana</h4>
+                                <p class="text-muted mb-0">Esta Semana</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-success fw-bold">@Model.ReclamosMes</h4>
+                                <p class="text-muted mb-0">Este Mes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-flag me-2"></i>Distribución por Prioridad
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-danger fw-bold">@Model.ReclamosPrioridadAlta</h4>
+                                <p class="text-muted mb-0">Alta</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-warning fw-bold">@Model.ReclamosPrioridadMedia</h4>
+                                <p class="text-muted mb-0">Media</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="metric-item">
+                                <h4 class="text-success fw-bold">@Model.ReclamosPrioridadBaja</h4>
+                                <p class="text-muted mb-0">Baja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros y Búsqueda -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-funnel me-2"></i>Filtros y Búsqueda
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="filtrosForm" class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Búsqueda</label>
+                            <input type="text" class="form-control" id="busqueda" placeholder="Título, descripción o ID..." oninput="aplicarFiltros()">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Estado</label>
+                            <select class="form-select" id="filtroEstado" onchange="aplicarFiltros()">
+                                <option value="">Todos</option>
+                                <option value="Nuevo">Nuevo</option>
+                                <option value="EnProceso">En Proceso</option>
+                                <option value="Respondido">Respondido</option>
+                                <option value="Cerrado">Cerrado</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Prioridad</label>
+                            <select class="form-select" id="filtroPrioridad" onchange="aplicarFiltros()">
+                                <option value="">Todas</option>
+                                <option value="Alta">Alta</option>
+                                <option value="Media">Media</option>
+                                <option value="Baja">Baja</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Desde</label>
+                            <input type="date" class="form-control" id="fechaDesde" onchange="aplicarFiltros()">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Hasta</label>
+                            <input type="date" class="form-control" id="fechaHasta" onchange="aplicarFiltros()">
+                        </div>
+                        <!-- Botón de búsqueda eliminado, ya no es necesario -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Casos Urgentes -->
+    @if (Model.ReclamosUrgentes.Any())
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="card-title mb-0">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            Casos Urgentes (@Model.ReclamosUrgentes.Count)
+                            <span class="badge bg-white text-danger ms-2">Atención Inmediata</span>
+                        </h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Título</th>
+                                        <th>Usuario</th>
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var reclamo in Model.ReclamosUrgentes.Take(5))
+                                    {
+                                        <tr class="table-danger">
+                                            <td>
+                                                <span class="badge bg-danger">
+                                                    #@reclamo.Id.ToString().Substring(0, 8)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="fw-semibold">@reclamo.Titulo</div>
+                                                <small class="text-muted">@reclamo.Descripcion.Substring(0, Math.Min(40, reclamo.Descripcion.Length))...</small>
+                                            </td>
+                                            <td>@(reclamo.UsuarioNombre ?? "Usuario")</td>
+                                            <td><span class="badge bg-warning">@reclamo.Estado</span></td>
+                                            <td><small>@reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small></td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm" onclick="atenderUrgente('@reclamo.Id')">
+                                                    <i class="bi bi-lightning"></i> Atender Ya
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Tabla Principal de Reclamos -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-list-ul me-2"></i>
+                        Todos los Reclamos (@Model.TodosLosReclamos.Count)
+                    </h5>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="cambiarVista('tabla')">
+                            <i class="bi bi-table"></i> Tabla
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="cambiarVista('cards')">
+                            <i class="bi bi-grid-3x3"></i> Tarjetas
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div id="vistaTabla" class="table-responsive">
+                        <table class="table table-hover mb-0" id="tablaReclamos">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Estado</th>
+                                    <th>Prioridad</th>
+                                    <th>Fecha Creación</th>
+                                    <th>Tiempo Transcurrido</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var reclamo in Model.TodosLosReclamos)
+                                {
+                                    <tr data-estado="@reclamo.Estado" data-prioridad="@reclamo.Prioridad">
+                                        <td>
+                                            <span class="badge bg-light text-dark">
+                                                #@reclamo.Id.ToString().Substring(0, 8)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="fw-semibold">@reclamo.Titulo</div>
+                                            <small class="text-muted">@reclamo.Descripcion.Substring(0, Math.Min(50, reclamo.Descripcion.Length))...</small>
+                                        </td>
+                                        <td>
+                                                @{
+                                                    var estadoBadge = reclamo.Estado switch
+                                                    {
+                                                            "Nuevo" => "bg-primary",         // azul
+                                                            "Respondido" => "bg-light text-dark", // gris clarito
+                                                            "EnProceso" => "bg-warning",     // naranja
+                                                            "Cerrado" => "bg-secondary",     // gris
+                                                            _ => "bg-secondary"
+                                                    };
+                                                }
+                                                <span class="badge @estadoBadge">@reclamo.Estado</span>
+                                        </td>
+                                        <td>
+                                            @{
+                                                var prioridadBadge = reclamo.Prioridad switch
+                                                {
+                                                    "Baja" => "bg-secondary",           // gris
+                                                    "Media" => "bg-warning",           // naranja
+                                                    "Alta" => "bg-danger",             // rojo
+                                                    "Urgente" => "bg-danger",          // rojo
+                                                    _ => "bg-secondary"
+                                                };
+                                            }
+                                            <span class="badge @prioridadBadge">@reclamo.Prioridad</span>
+                                        </td>
+                                        <td>
+                                            <small>@reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small>
+                                        </td>
+                                        <td>
+                                            @{
+                                                var diasTranscurridos = (DateTime.Now - reclamo.FechaCreacion).Days;
+                                                var tiempoClass = diasTranscurridos > 7 ? "text-danger" : diasTranscurridos > 3 ? "text-warning" : "text-success";
+                                            }
+                                            <small class="@tiempoClass">@diasTranscurridos días</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="verDetalle('@reclamo.Id')" title="Ver detalles">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                                @if (reclamo.Estado == "Nuevo" || reclamo.Estado == "EnProceso")
+                                                {
+                                                    <button class="btn btn-outline-success btn-sm" onclick="responder('@reclamo.Id')" title="Responder">
+                                                        <i class="bi bi-reply"></i>
+                                                    </button>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Respondido')">Marcar Respondido</a></li>
+                                                            <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Cerrado')">Cerrar Caso</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                }
+                                                else if (reclamo.Estado == "Respondido")
+                                                {
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Cerrado')">Cerrar Caso</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                }
+                                                else if (reclamo.Estado == "Cerrado")
+                                                {
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="bi bi-three-dots"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                        </ul>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="vistaCards" class="row" style="display:none;">
+                        @foreach (var reclamo in Model.TodosLosReclamos)
+                        {
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">@reclamo.Titulo</h5>
+                                        <p class="card-text">@reclamo.Descripcion.Substring(0, Math.Min(80, reclamo.Descripcion.Length))...</p>
+                                        <ul class="list-unstyled mb-2">
+                                            <li><strong>Usuario:</strong> @reclamo.UsuarioNombre</li>
+                                            <li><strong>Estado:</strong> <span class="badge @(reclamo.Estado == "Respondido" ? "bg-primary" : "bg-info")">@reclamo.Estado</span></li>
+                                            <li><strong>Prioridad:</strong> <span class="badge bg-warning">@reclamo.Prioridad</span></li>
+                                            <li><strong>Fecha:</strong> @reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</li>
+                                        </ul>
+                                        <div class="btn-group btn-group-sm">
+                                            <button class="btn btn-outline-primary btn-sm" onclick="verDetalle('@reclamo.Id')" title="Ver detalles">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                            @if (reclamo.Estado == "Nuevo" || reclamo.Estado == "EnProceso")
+                                            {
+                                                <button class="btn btn-outline-success btn-sm" onclick="responder('@reclamo.Id')" title="Responder">
+                                                    <i class="bi bi-reply"></i>
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Respondido')">Marcar Respondido</a></li>
+                                                        <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Cerrado')">Cerrar Caso</a></li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                    </ul>
+                                                </div>
+                                            }
+                                            else if (reclamo.Estado == "Respondido")
+                                            {
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#" onclick="cambiarEstado('@reclamo.Id', 'Cerrado')">Cerrar Caso</a></li>
+                                                        <li><hr class="dropdown-divider"></li>
+                                                        <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                    </ul>
+                                                </div>
+                                            }
+                                            else if (reclamo.Estado == "Cerrado")
+                                            {
+                                                <div class="dropdown">
+                                                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                        <i class="bi bi-three-dots"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item text-danger" href="#" onclick="eliminarReclamo('@reclamo.Id')">Eliminar</a></li>
+                                                    </ul>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos específicos -->
+<style>
+.gestion-reclamos {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.stats-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.metric-item {
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(0, 123, 255, 0.1);
+    margin: 0.25rem;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    font-size: 0.75rem;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.375rem;
+}
+
+.stats-icon {
+    opacity: 0.7;
+    font-size: 2rem;
+}
+</style>
+
+<!-- Scripts -->
+<script>
+function refreshGestion() {
+    location.reload();
+}
+
+function exportarReporte() {
+    var tabla = document.getElementById('tablaReclamos');
+    var filas = tabla.querySelectorAll('tbody tr');
+    var csv = [];
+    // Encabezados bonitos en español
+    var encabezados = [
+        'ID Reclamo',
+        'Título',
+        'Descripción',
+        'Estado',
+        'Prioridad',
+        'Fecha de Creación'
+    ];
+    csv.push(encabezados.join(';'));
+    // Filas
+    filas.forEach(function(fila) {
+        var celdas = fila.querySelectorAll('td');
+        var datos = [];
+        // ID Reclamo
+        var id = celdas[0].innerText.replace(/^#/, '').trim();
+        datos.push(id);
+        // Título
+        var tituloDiv = celdas[1].querySelector('.fw-semibold');
+        var titulo = tituloDiv ? tituloDiv.innerText.trim() : celdas[1].innerText.trim();
+        datos.push(titulo);
+        // Descripción
+        var descSmall = celdas[1].querySelector('small.text-muted');
+        var descripcion = descSmall ? descSmall.innerText.replace(/\.\.\.$/, '').trim() : '';
+        datos.push(descripcion);
+        // Estado
+        var estadoSpan = celdas[2].querySelector('span');
+        var estado = estadoSpan ? estadoSpan.innerText.trim() : celdas[2].innerText.trim();
+        datos.push(estado);
+        // Prioridad
+        var prioridadSpan = celdas[3].querySelector('span');
+        var prioridad = prioridadSpan ? prioridadSpan.innerText.trim() : celdas[3].innerText.trim();
+        datos.push(prioridad);
+        // Fecha de Creación (formato dd/MM/yyyy HH:mm)
+        var fecha = celdas[4].innerText.trim();
+        datos.push(fecha);
+        csv.push(datos.join(';'));
+    });
+    var contenido = csv.join('\n');
+    // Agregar BOM UTF-8 para que Excel reconozca correctamente los acentos
+    var bom = '\uFEFF';
+    var blob = new Blob([bom + contenido], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'reclamos_exportados.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function aplicarFiltros() {
+    const busqueda = document.getElementById('busqueda').value.toLowerCase();
+    const estado = document.getElementById('filtroEstado').value;
+    const prioridad = document.getElementById('filtroPrioridad').value;
+
+    const tabla = document.getElementById('tablaReclamos');
+    const filas = tabla.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    for (let i = 0; i < filas.length; i++) {
+        const fila = filas[i];
+        const titulo = fila.cells[1].textContent.toLowerCase();
+        const estadoFila = fila.getAttribute('data-estado');
+        const prioridadFila = fila.getAttribute('data-prioridad');
+
+        let mostrar = true;
+
+        if (busqueda && !titulo.includes(busqueda)) {
+            mostrar = false;
+        }
+
+        if (estado && estadoFila !== estado) {
+            mostrar = false;
+        }
+
+        if (prioridad && prioridadFila !== prioridad) {
+            mostrar = false;
+        }
+
+        fila.style.display = mostrar ? '' : 'none';
+    }
+}
+
+function verDetalle(id) {
+    window.location.href = `/Soporte/DetalleReclamo/${id}`;
+}
+
+function responder(id) {
+    window.location.href = `/Soporte/NuevaRespuestaPorId/${id}`;
+}
+
+function atenderUrgente(id) {
+    if (confirm('¿Desea atender este caso urgente inmediatamente?')) {
+        window.location.href = `/Reclamos/Edit/${id}`;
+    }
+}
+
+function cambiarEstado(id, nuevoEstado) {
+    console.log('cambiarEstado llamado:', id, nuevoEstado);
+    console.log('Origin:', window.location.origin);
+    if (confirm(`¿Cambiar el estado a "${nuevoEstado}"?`)) {
+        const token = localStorage.getItem('jwtToken');
+        if (!token) {
+            alert('Sesión expirada. Por favor, vuelve a iniciar sesión.');
+            window.location.href = '/Auth/Login';
+            return;
+        }
+        fetch(`http://localhost:8080/api/reclamos/${id}/estado`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ Estado: nuevoEstado })
+        })
+        .then(response => {
+            console.log('CORS response headers:', response.headers);
+            if (response.ok) {
+                location.reload();
+            } else if (response.status === 401) {
+                alert('Sesión expirada o sin permisos. Por favor, vuelve a iniciar sesión.');
+                window.location.href = '/Auth/Login';
+            } else {
+                alert('Error al cambiar el estado');
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+    }
+}
+
+function asignarAgente(id) {
+    // Implementar modal de asignación
+    alert('Función de asignación en desarrollo');
+}
+
+function eliminarReclamo(id) {
+    if (confirm('¿Está seguro de eliminar este reclamo? Esta acción no se puede deshacer.')) {
+        const token = localStorage.getItem('jwtToken');
+        fetch(`http://localhost:8080/api/reclamos/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Error al eliminar el reclamo');
+            }
+        });
+    }
+}
+
+function cambiarVista(tipo) {
+    var tabla = document.getElementById('vistaTabla');
+    var cards = document.getElementById('vistaCards');
+    if (tipo === 'tabla') {
+        tabla.style.display = '';
+        cards.style.display = 'none';
+    } else {
+        tabla.style.display = 'none';
+        cards.style.display = '';
+    }
+}
+
+// Auto-refresh cada 2 minutos
+setInterval(function() {
+    if (document.visibilityState === 'visible') {
+        refreshGestion();
+    }
+}, 120000);
+</script>

@@ -1,0 +1,19 @@
+/* Animaciones para Casos Urgentes */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.5; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.13); }
+    100% { transform: scale(1); }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+#badgeUrgentes {
+    animation: pulse 2s infinite;
+}

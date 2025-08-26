@@ -1,0 +1,454 @@
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta usuarios\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta soporte\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\reclamos y soporte\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\respaldo\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\supportweb hasta  notis\reclamos y soporte\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\appsettings.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.staticwebassets.runtime.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.exe
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.deps.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.runtimeconfig.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Features.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Net.ServerSentEvents.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\System.Threading.Channels.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.AssemblyReference.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfoInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.AssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.CoreCompileInputs.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.RazorAssemblyInfo.cs
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\scopedcss\bundle\SupportWeb.styles.css
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.SupportWeb.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.build.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.SupportWeb.props
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.csproj.Up2Date
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\refint\SupportWeb.dll
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.pdb
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\SupportWeb.genruntimeconfig.cache
+C:\Users\AMDRYZEN7\Desktop\Proyectos personales\SupportWeb\SupportWeb\obj\Debug\net8.0\ref\SupportWeb.dll

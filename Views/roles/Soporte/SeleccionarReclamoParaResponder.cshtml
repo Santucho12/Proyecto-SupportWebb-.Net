@@ -1,0 +1,282 @@
+@model List<SupportWeb.Models.DTOs.ReclamoDto>
+@{
+    ViewData["Title"] = "Seleccionar Reclamo para Responder";
+}
+
+<div class="container">
+    <div class="header-section">
+        <h1 class="page-title">Gestiona y responde a los reclamos de soporte</h1>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="empty-state">
+            <h3>No hay reclamos pendientes</h3>
+            <p>¡Excelente trabajo! Todos los reclamos han sido atendidos.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-wrapper">
+            <table class="tickets-table">
+                <thead>
+                    <tr>
+                        <th class="col-id"># ID</th>
+                        <th class="col-title">📄 Título</th>
+                        <th class="col-user">👤 Usuario</th>
+                        <th class="col-status">🏷️ Estado</th>
+                        <th class="col-priority">⚠️ Prioridad</th>
+                        <th class="col-date">📅 Creado</th>
+                           <!-- Tiempo column removed -->
+                        <th class="col-action">↩️ Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var reclamo in Model)
+                    {
+                        if (reclamo.Estado == "Nuevo")
+                        {
+                            <tr class="ticket-row">
+                                <td class="cell-id">@reclamo.Id</td>
+                                <td class="cell-title">@reclamo.Titulo</td>
+                                <td class="cell-user">
+                                    <span class="user-info">
+                                        👤 @reclamo.UsuarioNombre
+                                    </span>
+                                </td>
+                                <td class="cell-status">
+                                    <span class="status-badge status-@(reclamo.Estado.ToLower())">
+                                        ● @reclamo.Estado
+                                    </span>
+                                </td>
+                                <td class="cell-priority">
+                                    <span class="priority-badge priority-@(reclamo.Prioridad?.ToLower() ?? "baja")">
+                                        @(reclamo.Prioridad ?? "Baja")
+                                    </span>
+                                </td>
+                                <td class="cell-date">
+                                    <div class="date-info">
+                                        <div class="date-main">@reclamo.FechaCreacion.ToString("dd/MM/yyyy")</div>
+                                        <div class="date-time">@reclamo.FechaCreacion.ToString("HH:mm")</div>
+                                    </div>
+                                </td>
+                                <!-- Tiempo cell removed -->
+                                <td class="cell-action">
+                                    <a class="action-btn" asp-controller="Soporte" asp-action="NuevaRespuestaPorId" asp-route-reclamoId="@reclamo.Id">
+                                        Responder
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<style>
+/* Simplified design system without keyframes or media queries */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.header-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.table-wrapper {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Compact table design with better spacing */
+.tickets-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.tickets-table thead {
+    background: #343a40;
+    color: white;
+}
+
+.tickets-table th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.tickets-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.ticket-row:hover {
+    background-color: #f8f9fa;
+}
+
+/* Improved cell styling for better visual hierarchy */
+.cell-id {
+    font-weight: 700;
+    color: #007bff;
+    font-size: 16px;
+}
+
+.cell-title {
+    font-weight: 600;
+    color: #2c3e50;
+    max-width: 250px;
+}
+
+.user-info {
+    color: #6c757d;
+    font-size: 13px;
+}
+
+.date-info {
+    text-align: center;
+}
+
+.date-main {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 13px;
+}
+
+.date-time {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* Enhanced status badges with better visibility */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-nuevo {
+    background-color: #007bff;
+    color: white;
+}
+
+.status-respondido {
+    background-color: #6c757d;
+    color: white;
+}
+
+.status-abierto {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.status-cerrado {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Priority badges with distinct colors */
+.priority-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority-alta {
+    background-color: #dc3545;
+    color: white;
+}
+
+.priority-media {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.priority-baja {
+    background-color: #8f8f8fff;
+    color: white;
+}
+
+/* Time badges with urgency indicators */
+.time-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.time-urgent {
+    background-color: #dc3545;
+    color: white;
+}
+
+.time-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.time-normal {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Improved action button design */
+.action-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+/* Column width optimization for better layout */
+.col-id { width: 60px; }
+.col-title { width: 300px; }
+.col-user { width: 150px; }
+.col-status { width: 150px; }
+.col-priority { width: 100px; }
+.col-date { width: 120px; }
+.col-time { width: 80px; }
+.col-action { width: 100px; }
+</style>

@@ -1,0 +1,112 @@
+@model SupportWeb.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Registrarse";
+    Layout = "_AuthLayout";
+}
+
+<h2 class="text-center mb-4">Crear Cuenta</h2>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success" role="alert">
+        <i class="bi bi-check-circle me-2"></i>@Model.SuccessMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-triangle me-2"></i>@Model.ErrorMessage
+    </div>
+}
+
+<form asp-action="Register" method="post" novalidate>
+    <div class="form-floating mb-3">
+        <input asp-for="Nombre" class="form-control" placeholder="Tu nombre completo" autocomplete="name" />
+        <label asp-for="Nombre"></label>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Email" class="form-control" placeholder="correo@ejemplo.com" autocomplete="email" />
+        <label asp-for="Email"></label>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="Password" class="form-control" placeholder="Contraseña" autocomplete="new-password" />
+        <label asp-for="Password"></label>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <div class="form-text">La contraseña debe tener al menos 6 caracteres.</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirmar contraseña" autocomplete="new-password" />
+        <label asp-for="ConfirmPassword"></label>
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Rol" class="form-label">
+            <i class="bi bi-person-badge me-2"></i>Tipo de Usuario
+        </label>
+        <select asp-for="Rol" class="form-select" required>
+            <option value="">Seleccione el tipo de usuario</option>
+            <option value="Usuario">👤 Usuario</option>
+            <option value="Soporte">🛠️ Personal de Soporte</option>
+            <option value="Admin">👑 Administrador</option>
+        </select>
+        <span asp-validation-for="Rol" class="text-danger"></span>
+        <div class="form-text">
+            <small>
+                <strong>Usuario:</strong> Puede crear y ver sus reclamos<br>
+                <strong>Personal de Soporte:</strong> Puede responder y gestionar reclamos<br>
+                <strong>Administrador:</strong> Acceso completo al sistema
+            </small>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 mb-3">
+        <button type="submit" class="btn btn-primary btn-lg">
+            <i class="bi bi-person-plus me-2"></i>Crear Cuenta
+        </button>
+    </div>
+
+    <div class="text-center">
+        <p class="mb-0">¿Ya tienes una cuenta?</p>
+        <a asp-action="Login" class="text-primary text-decoration-none fw-semibold">
+            Inicia sesión aquí
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Focus en el primer campo
+        document.querySelector('#Nombre').focus();
+
+        // Validación en tiempo real de confirmación de contraseña
+        document.querySelector('#ConfirmPassword').addEventListener('blur', function() {
+            const password = document.querySelector('#Password').value;
+            const confirmPassword = this.value;
+
+            if (password && confirmPassword && password !== confirmPassword) {
+                this.setCustomValidity('Las contraseñas no coinciden');
+                this.classList.add('is-invalid');
+            } else {
+                this.setCustomValidity('');
+                this.classList.remove('is-invalid');
+            }
+        });
+
+        // Efecto hover en el botón
+        document.querySelector('.btn-primary').addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+
+        document.querySelector('.btn-primary').addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    </script>
+}

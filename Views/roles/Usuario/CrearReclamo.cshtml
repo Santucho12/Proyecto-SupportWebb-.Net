@@ -1,0 +1,299 @@
+@model SupportWeb.Models.ViewModels.CreateReclamoViewModel
+@{
+    ViewData["Title"] = "Crear Nuevo Reclamo";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="d-flex flex-column justify-content-start">
+                    <h2 class="text-primary mb-0" style="line-height: 1.2;">
+                        <i class="fas fa-plus-circle me-2"></i>Crear Nuevo Reclamo
+                    </h2>
+                    <p class="text-muted mb-0" style="line-height: 1.2;">Describe tu consulta o problema y te ayudaremos a resolverlo</p>
+                </div>
+                <div>
+                    <a href="@Url.Action("MisReclamos", "Usuario")" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>Volver a Mis Reclamos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    @if (!string.IsNullOrEmpty(Model?.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>@Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Form -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-edit me-2"></i>Información del Reclamo
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CrearReclamo" method="post" enctype="multipart/form-data" novalidate>
+                        @Html.AntiForgeryToken()
+
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                <strong>Error:</strong> Por favor, corrige los errores a continuación:
+                                <ul class="mb-0 mt-2">
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        <!-- Título -->
+                        <div class="mb-4">
+                            <label asp-for="Titulo" class="form-label fw-semibold">
+                                <i class="fas fa-heading me-1 text-primary"></i>@Html.DisplayNameFor(m => m.Titulo) <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Titulo" class="form-control form-control-lg" placeholder="Ej: Problema con el envio, Consulta sobre devolucion..." />
+                            <span asp-validation-for="Titulo" class="text-danger small"></span>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>Escribe un título claro y descriptivo para tu reclamo
+                            </div>
+                        </div>
+
+                        <!-- Prioridad -->
+                        <div class="mb-4">
+                            <label asp-for="Prioridad" class="form-label fw-semibold">
+                                <i class="fas fa-flag me-1 text-primary"></i>@Html.DisplayNameFor(m => m.Prioridad) <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="Prioridad" class="form-select form-select-lg">
+                                <option value="Baja" selected>🟢 Baja - Consulta general o solicitud no urgente</option>
+                                <option value="Media">🟡 Media - Problema que afecta el servicio parcialmente</option>
+                                <option value="Alta">🔴 Alta - Problema crítico que requiere atención inmediata</option>
+                            </select>
+                            <span asp-validation-for="Prioridad" class="text-danger small"></span>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>Selecciona la prioridad según la urgencia de tu consulta
+                            </div>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="mb-4">
+                            <label asp-for="Descripcion" class="form-label fw-semibold">
+                                <i class="fas fa-align-left me-1 text-primary"></i>@Html.DisplayNameFor(m => m.Descripcion) <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="6"
+                                     placeholder="Describe detalladamente tu consulta o problema. Incluye toda la información relevante como fechas, números de referencia, pasos que realizaste, etc."></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger small"></span>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                            </div>
+                        </div>
+
+                        <!-- Archivo -->
+                        <div class="mb-4">
+                            <label asp-for="Archivo" class="form-label fw-semibold">
+                                <i class="fas fa-paperclip me-1 text-primary"></i>@Html.DisplayNameFor(m => m.Archivo)
+                            </label>
+                            <input asp-for="Archivo" type="file" class="form-control" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" />
+                            <span asp-validation-for="Archivo" class="text-danger small"></span>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>Formatos permitidos: PDF, DOC, DOCX, JPG, PNG, TXT (Máximo 5MB)
+                            </div>
+                        </div>
+
+                        <!-- Información Importante (Consejo fijo) -->
+                        <div class="consejo-fijo" id="consejo-fijo">
+                            <div class="consejo-icono">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="consejo-contenido">
+                                <strong>Consejos para un mejor servicio:</strong>
+                                <ul class="mb-0 small">
+                                    <li>Sea específico en la descripción del problema</li>
+                                    <li>Incluya capturas de pantalla o documentos relevantes</li>
+                                    <li>Proporcione números de referencia si los tiene</li>
+                                    <li>Indique los pasos que ya intentó para resolver el problema</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="@Url.Action("MisReclamos", "Usuario")" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-1"></i>Cancelar
+                            </a>
+                            <div>
+                                <button type="reset" class="btn btn-outline-warning me-2">
+                                    <i class="fas fa-undo me-1"></i>Limpiar
+                                </button>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-1"></i>Enviar Reclamo
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Validación en tiempo real
+            $('input, textarea, select').on('blur', function() {
+                $(this).removeClass('is-invalid is-valid');
+                var fieldName = $(this).attr('name');
+                var validationSpan = $('span[data-valmsg-for="' + fieldName + '"]');
+
+                if (validationSpan.text().trim() !== '') {
+                    $(this).addClass('is-invalid');
+                } else if ($(this).val().trim() !== '') {
+                    $(this).addClass('is-valid');
+                }
+            });
+
+            // Contador de caracteres para descripción
+            var maxLength = 2000;
+            var textArea = $('#Descripcion');
+            var charCounter = $('<div class="form-text text-end"><span id="charCount">0</span>/' + maxLength + ' caracteres</div>');
+            textArea.after(charCounter);
+
+            textArea.on('input', function() {
+                var currentLength = $(this).val().length;
+                $('#charCount').text(currentLength);
+
+                if (currentLength > maxLength * 0.9) {
+                    $('#charCount').addClass('text-warning');
+                } else {
+                    $('#charCount').removeClass('text-warning');
+                }
+
+                if (currentLength >= maxLength) {
+                    $('#charCount').addClass('text-danger');
+                } else {
+                    $('#charCount').removeClass('text-danger');
+                }
+            });
+
+            // Validación de archivo
+            $('#Archivo').on('change', function() {
+                var fileInput = this;
+                var maxSize = 5 * 1024 * 1024; // 5MB
+                var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                                   'image/jpeg', 'image/jpg', 'image/png', 'text/plain'];
+
+                if (fileInput.files.length > 0) {
+                    var file = fileInput.files[0];
+                    var isValidType = allowedTypes.includes(file.type);
+                    var isValidSize = file.size <= maxSize;
+
+                    if (!isValidType) {
+                        alert('Tipo de archivo no permitido. Solo se permiten: PDF, DOC, DOCX, JPG, PNG, TXT');
+                        $(this).val('');
+                        return;
+                    }
+
+                    if (!isValidSize) {
+                        alert('El archivo es demasiado grande. El tamaño máximo permitido es 5MB.');
+                        $(this).val('');
+                        return;
+                    }
+                }
+            });
+
+            // Confirmación antes de enviar
+            $('form').on('submit', function(e) {
+                var titulo = $('#Titulo').val().trim();
+                var descripcion = $('#Descripcion').val().trim();
+                var prioridad = $('#Prioridad').val();
+
+                if (titulo === '' || descripcion === '') {
+                    e.preventDefault();
+                    alert('Por favor complete todos los campos obligatorios.');
+                    return false;
+                }
+
+                var confirmMessage = `¿Está seguro que desea enviar este reclamo?\n\nTítulo: ${titulo}\nPrioridad: ${prioridad}`;
+                if (!confirm(confirmMessage)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            // Consejo permanece siempre visible, no se elimina ni oculta
+        });
+    </script>
+}
+
+<style>
+    .form-control:focus, .form-select:focus {
+        border-color: #4e73df;
+        box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+
+    .form-control.is-valid {
+        border-color: #1cc88a;
+    }
+
+    .form-control.is-invalid {
+        border-color: #e74a3b;
+    }
+
+    .btn-primary {
+        background-color: #4e73df;
+        border-color: #4e73df;
+    }
+
+    .btn-primary:hover {
+        background-color: #2e59d9;
+        border-color: #2e59d9;
+    }
+
+    .card {
+        border: 1px solid #e3e6f0;
+    }
+
+    /* Consejo fijo estilos */
+    .consejo-fijo {
+        display: flex;
+        align-items: flex-start;
+        background: #eaf6fb;
+        border-left: 5px solid #4e73df;
+        border-radius: 6px;
+        padding: 18px 20px;
+        margin-bottom: 1.5rem;
+        color: #22577a;
+        box-shadow: 0 2px 8px rgba(78, 115, 223, 0.07);
+    }
+    .consejo-icono {
+        font-size: 2rem;
+        color: #4e73df;
+        margin-right: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .consejo-contenido {
+        flex: 1;
+    }
+    .consejo-contenido strong {
+        font-size: 1.08rem;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+    }
+</style>

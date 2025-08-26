@@ -1,0 +1,176 @@
+@using SupportWeb.Models.ViewModels
+@model SupportWeb.Models.ViewModels.Admin.AdminGestionReclamosViewModel
+@{
+    ViewData["Title"] = "Gestión de Reclamos";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold text-primary mb-0">
+                <i class="bi bi-clipboard-data me-2"></i>Gestión de Reclamos
+            </h2>
+            <div class="d-flex flex-row gap-2">
+                    <button type="button" class="btn btn-success" onclick="exportarReporte()">
+                        <i class="fas fa-file-export me-1"></i>Exportar Reclamos
+                    </button>
+                <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Volver al Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form class="row g-3 mb-3" method="get" action="@Url.Action("GestionReclamos", "Admin")">
+                <div class="col-md-4">
+                    <input type="text" id="busqueda" name="busqueda" class="form-control" placeholder="Buscar por asunto, usuario o estado..." value="@Model.Busqueda" />
+                </div>
+                <div class="col-md-3">
+                    <select id="estado" name="estado" class="form-select">
+                        <option value="">Todos los estados</option>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Respondido">Respondido</option>
+                        <option value="Cerrado">Cerrado</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select id="prioridad" name="prioridad" class="form-select">
+                        <option value="">Todas las prioridades</option>
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-grid">
+                    <button type="button" id="buscarBtn" class="btn btn-primary">
+                        <i class="bi bi-search"></i> Buscar
+                    </button>
+                </div>
+            </form>
+<script>
+function exportarReporte() {
+    var tabla = document.querySelector('table');
+    if (!tabla) return;
+    var filas = tabla.querySelectorAll('tbody tr');
+    var csv = [];
+    var encabezados = [
+        'ID Reclamo',
+        'Título',
+        'Estado',
+        'Prioridad',
+        'Fecha de Creación'
+    ];
+    csv.push(encabezados.join(';'));
+    filas.forEach(function(fila) {
+        var celdas = fila.querySelectorAll('td');
+        var datos = [];
+        datos.push(celdas[0]?.innerText.trim()); // ID Reclamo
+        datos.push(celdas[1]?.innerText.trim()); // Título
+        datos.push(celdas[3]?.innerText.trim()); // Estado
+        datos.push(celdas[4]?.innerText.trim()); // Prioridad
+        datos.push(celdas[5]?.innerText.trim()); // Fecha de Creación
+        csv.push(datos.join(';'));
+    });
+    var contenido = csv.join('\n');
+    var bom = '\uFEFF';
+    var blob = new Blob([bom + contenido], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'reclamos_exportados.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+<script>
+    function cargarReclamos() {
+        var busqueda = document.getElementById('busqueda').value;
+        var estado = document.getElementById('estado').value;
+        var prioridad = document.getElementById('prioridad').value;
+        fetch(`@Url.Action("FiltrarReclamos", "Admin")?busqueda=${encodeURIComponent(busqueda)}&estado=${encodeURIComponent(estado)}&prioridad=${encodeURIComponent(prioridad)}`)
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector('tbody').innerHTML = html;
+            });
+    }
+    document.getElementById('buscarBtn').addEventListener('click', cargarReclamos);
+    document.getElementById('busqueda').addEventListener('input', cargarReclamos);
+    document.getElementById('estado').addEventListener('change', cargarReclamos);
+    document.getElementById('prioridad').addEventListener('change', cargarReclamos);
+</script>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Asunto</th>
+                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Prioridad</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Reclamos != null && Model.Reclamos.Any())
+                        {
+                            int idx = 1;
+                            foreach (var reclamo in Model.Reclamos)
+                            {
+                                <tr>
+                                    <td>@(idx++)</td>
+                                    <td>@reclamo.Titulo</td>
+                                    <td>@reclamo.UsuarioNombre</td>
+                                    <td>
+                                        <span class="badge @GetEstadoBadgeClass(reclamo.Estado)">@reclamo.Estado</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge @GetPrioridadBadgeClass(reclamo.Prioridad)">@reclamo.Prioridad</span>
+                                    </td>
+                                    <td>@reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>
+                                        <a href="@Url.Action("DetalleReclamo", "Admin", new { id = reclamo.Id })" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> Ver
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" class="text-center text-muted">No se encontraron reclamos.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    public string GetEstadoBadgeClass(string estado)
+    {
+            return estado switch
+            {
+                "Nuevo" => "bg-primary text-white",
+                "EnProceso" => "bg-warning text-dark",
+                "Respondido" => "bg-light text-dark",
+                "Cerrado" => "bg-secondary text-white",
+                _ => "bg-light text-dark"
+            };
+    }
+    public string GetPrioridadBadgeClass(string prioridad)
+    {
+            return prioridad switch
+            {
+                "Baja" => "bg-dark text-white",
+                "Media" => "bg-warning text-dark",
+                "Alta" => "bg-danger text-white",
+                "Urgente" => "bg-dark text-white",
+                _ => "bg-light text-dark"
+            };
+    }
+}

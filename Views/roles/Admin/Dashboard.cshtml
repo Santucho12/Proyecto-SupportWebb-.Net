@@ -1,0 +1,411 @@
+@using SupportWeb.Models.ViewModels
+@model SupportWeb.Models.ViewModels.Admin.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard Administrativo";
+}
+
+<div class="dashboard-admin">
+    <!-- Header del Dashboard -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="h3 mb-0">Dashboard Administrativo</h2>
+                    <p class="text-muted mb-0">¡Bienvenido @Model.Usuario.Nombre! Panel de control general del sistema</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary btn-sm" onclick="refreshDashboard()">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Actualizar
+                    </button>
+                    <a href="@Url.Action("GestionReclamos", "Admin")" class="btn btn-primary btn-sm">
+                        <i class="bi bi-plus-circle me-1"></i>Gestionar Reclamos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <span style="font-size:2.5rem;">👤</span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <div class="small text-muted">Total Usuarios</div>
+                            <div class="fs-3 fw-bold">@Model.TotalUsuarios</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <span style="font-size:2.5rem;">📋</span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <div class="small text-muted">Total Reclamos</div>
+                            <div class="fs-3 fw-bold">@Model.TotalReclamos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <span style="font-size:2.5rem;">⏳</span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <div class="small text-muted">En Proceso</div>
+                            <div class="fs-3 fw-bold">@Model.ReclamosEnProceso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <span style="font-size:2.5rem;">✅</span>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <div class="small text-muted">Resueltos</div>
+                            <div class="fs-3 fw-bold">@Model.ReclamosResueltos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráficos y Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                    <h5 class="card-title mb-0">Reclamos por Día</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px;">
+                        <canvas id="reclamosChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Reclamos por Estado</h5>
+                    <a href="@Url.Action("Reportes", "Admin")" class="btn btn-outline-info btn-sm">Ver estadísticas</a>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px;">
+                        <canvas id="estadosChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acciones Rápidas y Reclamos Recientes -->
+    <div class="row mb-4">
+        <div class="col-lg-4 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0">
+                    <h5 class="card-title mb-0">Acciones Rápidas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="@Url.Action("GestionReclamos", "Admin")" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-list-ul me-2"></i>Gestionar Reclamos
+                        </a>
+                        <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-outline-info btn-sm">
+                            <i class="bi bi-people me-2"></i>Gestionar Usuarios
+                        </a>
+                        <a href="@Url.Action("Reportes", "Admin")" class="btn btn-outline-success btn-sm">
+                            <i class="bi bi-bar-chart-line me-2"></i>Ver Reportes
+                        </a>
+                        <a href="@Url.Action("Configuracion", "Admin")" class="btn btn-outline-warning btn-sm">
+                            <i class="bi bi-gear me-2"></i>Configuración
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Reclamos Recientes</h5>
+                    <a href="@Url.Action("GestionReclamos", "Admin")" class="btn btn-sm btn-outline-primary">Ver todos</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.ReclamosRecientes.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Título</th>
+                                        <!-- <th>Usuario</th> -->
+                                        <th>Estado</th>
+                                        <th>Fecha</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ var ultimos3 = Model.ReclamosRecientes.Take(3).ToList(); }
+                                    @foreach (var reclamo in ultimos3)
+                                    {
+                                        <tr>
+                                            <td><span class="badge bg-light text-secondary" style="border:1px solid #e3e3e3;">#@(reclamo.Id.ToString().Substring(0, 15))</span></td>
+                                            <td>
+                                                <div class="fw-medium">@reclamo.Titulo</div>
+                                                <small class="text-muted">@(reclamo.Descripcion.Length > 50 ? reclamo.Descripcion.Substring(0, 50) + "..." : reclamo.Descripcion)</small>
+                                            </td>
+                                            <!-- <td>@reclamo.UsuarioNombre</td> -->
+                                            <td>
+                                                @switch (reclamo.Estado)
+                                                {
+                                                    case "Nuevo":
+                                                        <span class="badge bg-primary">@reclamo.Estado</span>
+                                                        break;
+                                                    case "Respondido":
+                                                        <span class="badge bg-primary">@reclamo.Estado</span>
+                                                        break;
+                                                    case "Cerrado":
+                                                        <span class="badge bg-secondary">@reclamo.Estado</span>
+                                                        break;
+                                                    default:
+                                                        <span class="badge bg-secondary">@reclamo.Estado</span>
+                                                        break;
+                                                }
+                                            </td>
+                                            <td>
+                                                <small>@reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("DetalleReclamo", "Admin", new { id = reclamo.Id })" class="btn btn-sm btn-outline-primary">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox display-4"></i>
+                            <p class="mt-2">No hay reclamos recientes</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Usuarios Recientes -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Usuarios Recientes</h5>
+                    <a href="@Url.Action("GestionUsuarios", "Admin")" class="btn btn-sm btn-outline-primary">Ver todos</a>
+                </div>
+                <div class="card-body">
+                    @if (Model.UsuariosRecientes.Any())
+                    {
+                        <div class="row">
+                            @foreach (var usuario in Model.UsuariosRecientes)
+                            {
+                                <div class="col-xl-3 col-md-6 mb-3">
+                                    <div class="d-flex align-items-center p-3 bg-light rounded">
+                                        <div class="flex-shrink-0">
+                                            @if (usuario.Rol == "Usuario")
+                                            {
+                                                <div class="bg-primary bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="bi bi-person text-primary" title="Usuario"></i>
+                                                </div>
+                                            }
+                                            else if (usuario.Rol == "Soporte")
+                                            {
+                                                <div class="bg-warning bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="bi bi-headset text-warning" title="Soporte"></i>
+                                                </div>
+                                            }
+                                            else if (usuario.Rol == "Admin")
+                                            {
+                                                <div class="bg-success bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="bi bi-shield-lock text-success" title="Admin"></i>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="bg-secondary bg-opacity-10 p-2 rounded-circle">
+                                                    <i class="bi bi-question-circle text-secondary" title="Otro"></i>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="fw-medium">@usuario.Nombre</div>
+                                            <small class="text-muted">@usuario.Email</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4 text-muted">
+                            <i class="bi bi-people display-4"></i>
+                            <p class="mt-2">No hay usuarios recientes</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Configurar gráfico de reclamos por día
+    const reclamosCtx = document.getElementById('reclamosChart').getContext('2d');
+    const reclamosChart = new Chart(reclamosCtx, {
+        type: 'line',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.EstadisticasPorDia.Select(e => e.Fecha).ToArray())),
+            datasets: [{
+                label: 'Reclamos',
+                data: @Html.Raw(Json.Serialize(Model.EstadisticasPorDia.Select(e => e.Reclamos).ToArray())),
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(context) {
+                            return `Reclamos: ${context.parsed.y}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Cantidad de Reclamos'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Fecha'
+                    }
+                }
+            }
+        }
+    });
+
+    // Configurar gráfico de estados
+    const estadosCtx = document.getElementById('estadosChart').getContext('2d');
+    const estadosChart = new Chart(estadosCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Sin responder', 'En Proceso', 'Resueltos'],
+            datasets: [{
+                data: [@Model.ReclamosNuevos, @Model.ReclamosEnProceso, @Model.ReclamosResueltos + @Model.ReclamosCerrados],
+                backgroundColor: [
+                    '#2563eb', // azul para Sin responder
+                    '#e11d48', // rojo para En Proceso
+                    '#22c55e'  // verde para Resueltos
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 14
+                        },
+                        generateLabels: function(chart) {
+                            const data = chart.data;
+                            if (data.labels.length && data.datasets.length) {
+                                const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                return data.labels.map((label, i) => {
+                                    const value = data.datasets[0].data[i];
+                                    const percent = total ? Math.round((value / total) * 100) : 0;
+                                    return {
+                                        text: `${label} (${percent}%)`,
+                                        fillStyle: data.datasets[0].backgroundColor[i],
+                                        strokeStyle: '#fff',
+                                        lineWidth: 2,
+                                        hidden: false,
+                                        index: i
+                                    };
+                                });
+                            }
+                            return [];
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const value = context.parsed;
+                            const percent = total ? Math.round((value / total) * 100) : 0;
+                            return `${context.label}: ${value} (${percent}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Funciones adicionales
+    function refreshDashboard() {
+        location.reload();
+    }
+
+    function generateReport() {
+        // Implementar lógica de generación de reportes
+        alert('Función de reportes en desarrollo');
+    }
+</script>

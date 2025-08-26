@@ -1,0 +1,431 @@
+@model List<SupportWeb.Models.DTOs.ReclamoDto>
+@{
+    ViewData["Title"] = "Mis Reclamos";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="text-primary mb-0">
+                        <i class="fas fa-file-alt me-2"></i>Mis Reclamos
+                    </h2>
+                    <p class="text-muted mb-0">Gestiona todos tus reclamos y consultas</p>
+                </div>
+                <div>
+                    <a href="@Url.Action("CrearReclamo", "Usuario")" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i>Nuevo Reclamo
+                    </a>
+                    <a href="@Url.Action("Dashboard", "Usuario")" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    @if (TempData["SuccessMessage"] != null && !ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>@TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card stats-card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Total</h5>
+                            <h3 class="mb-0">@Model.Count</h3>
+                        </div>
+                        <div class="icon-bg align-self-center">
+                            <i class="fas fa-file-alt fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card bg-danger text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Pendientes</h5>
+                            <h3 class="mb-0">@Model.Count(r => r.Estado == "Nuevo" || r.Estado == "En Proceso")</h3>
+                        </div>
+                        <div class="icon-bg align-self-center">
+                            <i class="fas fa-clock fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Resueltos</h5>
+                            <h3 class="mb-0">@Model.Count(r => r.Estado == "Resuelto" || r.Estado == "Cerrado")</h3>
+                        </div>
+                        <div class="icon-bg align-self-center">
+                            <i class="fas fa-check-circle fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stats-card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title mb-0">Este Mes</h5>
+                            <h3 class="mb-0">@Model.Count(r => r.FechaCreacion.Month == DateTime.Now.Month)</h3>
+                        </div>
+                        <div class="icon-bg align-self-center">
+                            <i class="fas fa-calendar fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reclamos Table -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list me-2"></i>Lista de Reclamos
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <!-- <th><i class="fas fa-hashtag me-1"></i>ID</th> -->
+                                        <th><i class="fas fa-heading me-1"></i>Título</th>
+                                        <th><i class="fas fa-flag me-1"></i>Prioridad</th>
+                                        <th><i class="fas fa-traffic-light me-1"></i>Estado</th>
+                                        <th><i class="fas fa-calendar me-1"></i>Fecha</th>
+                                        <th class="text-center"><i class="fas fa-cogs me-1"></i>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var reclamo in Model.OrderByDescending(r => r.FechaCreacion))
+                                    {
+                                        <tr>
+                                            <!-- <td>
+                                                <code class="text-muted">#@reclamo.Id.ToString()[..8]</code>
+                                            </td> -->
+                                            <td>
+                                                <div class="fw-semibold">@reclamo.Titulo</div>
+                                                <small class="text-muted">@reclamo.Descripcion.Substring(0, Math.Min(50, reclamo.Descripcion.Length))@(reclamo.Descripcion.Length > 50 ? "..." : "")</small>
+                                            </td>
+                                                                                        <td>
+                                                                                                <span class="badge
+                                                                                                        @(reclamo.Prioridad == "Baja" ? "bg-secondary" :
+                                                                                                            reclamo.Prioridad == "Media" ? "badge-naranja" :
+                                                                                                            (reclamo.Prioridad == "Alta" || reclamo.Prioridad == "Urgente") ? "bg-danger" : "bg-secondary")">
+                                                                                                        @reclamo.Prioridad
+                                                                                                </span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                                <span class="badge
+                                                                                                        @(reclamo.Estado == "Nuevo" ? "bg-info" :
+                                                                                                            reclamo.Estado == "Respondido" ? "badge-celeste" :
+                                                                                                            reclamo.Estado == "En Proceso" ? "badge-naranja" :
+                                                                                                            reclamo.Estado == "Cerrado" ? "bg-secondary" : "bg-secondary")">
+                                                                                                        @reclamo.Estado
+                                                                                                </span>
+                                                                                        </td>
+<style>
+    .badge-celeste {
+        background: #00bfff;
+        color: #fff;
+        font-weight: bold;
+        border: 1px solid #00bfff;
+    }
+    .badge-naranja {
+        background: #ff9800;
+        color: #fff;
+        font-weight: bold;
+        border: 1px solid #ff9800;
+    }
+</style>
+                                            <td>
+                                                <div class="fw-semibold">@reclamo.FechaCreacion.ToLocalTime().ToString("dd/MM/yyyy")</div>
+                                                <small class="text-muted">@reclamo.FechaCreacion.ToLocalTime().ToString("HH:mm")</small>
+                                            </td>
+                                            <td class="text-center">
+                                                    <div class="d-flex gap-2">
+                                                        <a href='@Url.Action("DetalleReclamo", "Usuario", new { id = reclamo.Id })' class="btn btn-reclamo me-2" title="Ver Detalles">
+                                                            <i class="bi bi-eye"></i>Reclamo
+                                                        </a>
+                                                        @if (reclamo.Estado == "Respondido" || reclamo.Estado == "Cerrado")
+                                                        {
+                                                            <a href='@Url.Action("VerRespuesta", "Usuario", new { id = reclamo.Id })' class="btn btn-respuesta" title="Ver respuesta de soporte">
+                                                                <i class="bi bi-chat"></i>Respuesta
+                                                            </a>
+                                                        }
+                                                    </div>
+<style>
+    .btn-reclamo {
+        background: #fff;
+        color: #6c757d;
+        border-radius: 0.375rem;
+        padding: 0.12rem 0.45rem;
+        font-size: 0.82rem;
+        box-shadow: 0 1px 2px #0d6dfd89;
+        border: none;
+        transition: background 0.2s, box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        min-width: 0;
+    }
+    .btn-reclamo:hover {
+        background: #084298;
+        box-shadow: 0 2px 6px #0d6efd44;
+        color: #fff;
+    }
+    .btn-respuesta {
+        background: #fff;
+        color: #6c757d;
+        border-radius: 0.375rem;
+        padding: 0.12rem 0.45rem;
+        font-size: 0.82rem;
+        box-shadow: 0 1px 2px #00bfff72;
+        border: none;
+        transition: background 0.2s, box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        min-width: 0;
+    }
+    .btn-respuesta:hover {
+        background: #0090c7;
+        box-shadow: 0 2px 6px #00bfff44;
+        color: #fff;
+    }
+    .btn-reclamo i, .btn-respuesta i {
+        font-size: 0.95rem;
+        margin-right: 0;
+    }
+</style>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+                            <h4 class="text-muted">No tienes reclamos aún</h4>
+                            <p class="text-muted mb-4">Crea tu primer reclamo para comenzar a gestionar tus consultas</p>
+                            <a href="@Url.Action("CrearReclamo", "Usuario")" class="btn btn-primary">
+                                <i class="fas fa-plus me-1"></i>Crear Primer Reclamo
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+<style>
+    /* Header improvements */
+    .page-header {
+        background: linear-gradient(90deg, #4e73df 0%, #224abe 100%);
+        color: #fff;
+        border-radius: 1rem;
+        padding: 2rem 2.5rem 1.5rem 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 24px rgba(78,115,223,0.10);
+    }
+    .page-header h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.5px;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+        color: #e3e6f0;
+        margin-bottom: 0;
+    }
+
+    /* Stats cards improvements */
+    .stats-card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 2px 16px rgba(78,115,223,0.08);
+        transition: transform 0.15s, box-shadow 0.15s;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 1.2rem;
+    }
+    .stats-card:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(78,115,223,0.18);
+    }
+    .stats-card .card-body {
+        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    }
+    .stats-card .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.2px;
+    }
+    .stats-card h3 {
+        font-size: 2.1rem;
+        font-weight: 800;
+        margin-bottom: 0;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .stats-card .icon-bg {
+        background: rgba(255,255,255,0.18);
+        border-radius: 50%;
+        padding: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .stats-card .fa-2x {
+        font-size: 2.2rem;
+        opacity: 0.85;
+    }
+    .table th {
+        border-top: none;
+        font-weight: 600;
+        color: #6c757d;
+        font-size: 0.875rem;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.5rem;
+    }
+
+    .btn-action {
+        min-width: 70px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        border-radius: 0.4rem;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        font-size: 0.92rem;
+        padding: 0.25rem 0.7rem;
+    }
+    .btn-action-sm {
+        min-width: 60px;
+        font-size: 0.85rem;
+        padding: 0.18rem 0.55rem;
+    }
+    .btn-action:hover, .btn-action:focus {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        opacity: 0.92;
+    }
+
+    .d-flex.gap-2 > * {
+        margin-right: 0.5rem;
+    }
+    .d-flex.gap-2 > *:last-child {
+        margin-right: 0;
+    }
+
+    .card {
+        border: 1px solid #e3e6f0;
+    }
+
+    .card-header {
+        border-bottom: 1px solid #e3e6f0;
+        background-color: #f8f9fc !important;
+    }
+    /* ...existing code... */
+</style>
+<script>
+    function marcarRespondido(id) {
+        if (confirm('¿Está seguro que desea marcar este reclamo como respondido?')) {
+            fetch('/Usuario/MarcarRespondido', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Reclamo marcado como respondido.');
+                    location.reload();
+                } else {
+                    alert('Error: ' + (data.message || 'No se pudo marcar como respondido.'));
+                }
+            });
+        }
+    }
+    function cerrarCaso(id) {
+        if (confirm('¿Está seguro que desea cerrar este caso?')) {
+            fetch('/Usuario/CerrarCaso', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Caso cerrado.');
+                    location.reload();
+                } else {
+                    alert('Error: ' + (data.message || 'No se pudo cerrar el caso.'));
+                }
+            });
+        }
+    }
+    function eliminarCaso(id) {
+        if (confirm('¿Está seguro que desea eliminar este caso? Esta acción no se puede deshacer.')) {
+            fetch('/Usuario/EliminarCaso', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Caso eliminado.');
+                    location.reload();
+                } else {
+                    alert('Error: ' + (data.message || 'No se pudo eliminar el caso.'));
+                }
+            });
+        }
+    }
+</script>

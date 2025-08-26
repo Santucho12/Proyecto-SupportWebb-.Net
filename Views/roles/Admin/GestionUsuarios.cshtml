@@ -1,0 +1,144 @@
+@model SupportWeb.Models.ViewModels.Admin.GestionUsuariosViewModel
+@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold text-primary mb-0">
+                <i class="bi bi-people me-2"></i>Gestión de Usuarios
+            </h2>
+            <div class="d-flex flex-row gap-2">
+                <button type="button" class="btn btn-success" onclick="exportarUsuarios()">
+                    <i class="fas fa-file-export me-1"></i>Exportar Usuarios
+                </button>
+                <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Volver al Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex flex-column flex-lg-row justify-content-between align-items-lg-center align-items-start gap-2">
+                    <div>
+                        <h4 class="mb-1">Gestión de Usuarios</h4>
+                        <p class="text-muted mb-0">Total de usuarios: @Model.TotalUsuarios</p>
+                    </div>
+                    <form id="filtrosUsuariosForm" class="d-flex flex-row gap-2 align-items-center p-2 rounded bg-light border">
+                        <input type="text" class="form-control" id="busquedaUsuario" placeholder="Buscar por nombre" oninput="aplicarFiltrosUsuarios()" style="max-width: 220px;" />
+                            <select class="form-select" id="filtroRol" onchange="aplicarFiltrosUsuarios()" style="max-width: 220px;">
+                            <option value="">Todos los roles</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Soporte">Soporte</option>
+                            <option value="Usuario">Usuario</option>
+                        </select>
+                        <button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('busquedaUsuario').value='';document.getElementById('filtroRol').value='';aplicarFiltrosUsuarios();">
+                            Limpiar filtros
+                        </button>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="tablaUsuarios">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th style="min-width:120px;">Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var usuario in Model.Usuarios)
+                                {
+                                    <tr>
+                                        <td>@usuario.Id</td>
+                                        <td>@usuario.Nombre</td>
+                                        <td>@usuario.Email</td>
+                                        <td style="min-width:120px;">
+                                            <span class="badge px-3 py-2 bg-@(usuario.Rol == "Admin" ? "danger" :
+                                                                   usuario.Rol == "Soporte" ? "warning" : "primary")" style="font-size:1rem;">
+                                                @usuario.Rol
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("MiPerfil", "Admin")" class="btn btn-sm btn-outline-primary">Editar</a>
+                                            <button type="button" class="btn btn-sm btn-outline-danger ms-1" onclick="ocultarUsuario(this)">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+function ocultarUsuario(btn) {
+    if (confirm('¿Está seguro de eliminar este usuario? Esta acción no se puede deshacer.')) {
+        var fila = btn.closest('tr');
+        fila.style.display = 'none';
+    }
+}
+function exportarUsuarios() {
+    var tabla = document.getElementById('tablaUsuarios');
+    var filas = tabla.querySelectorAll('tbody tr');
+    var csv = [];
+    var encabezados = [
+        'ID Usuario',
+        'Nombre',
+        'Email',
+        'Rol'
+    ];
+    csv.push(encabezados.join(';'));
+    filas.forEach(function(fila) {
+        var celdas = fila.querySelectorAll('td');
+        var datos = [];
+        datos.push(celdas[0]?.innerText.trim()); // ID
+        datos.push(celdas[1]?.innerText.trim()); // Nombre
+        datos.push(celdas[2]?.innerText.trim()); // Email
+        datos.push(celdas[3]?.innerText.trim()); // Rol
+        csv.push(datos.join(';'));
+    });
+    var contenido = csv.join('\n');
+    var bom = '\uFEFF';
+    var blob = new Blob([bom + contenido], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'usuarios_exportados.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function aplicarFiltrosUsuarios() {
+    const busqueda = document.getElementById('busquedaUsuario').value.toLowerCase();
+    const rol = document.getElementById('filtroRol').value;
+    const tabla = document.getElementById('tablaUsuarios');
+    const filas = tabla.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    for (let i = 0; i < filas.length; i++) {
+        const fila = filas[i];
+        const nombre = fila.cells[1].textContent.toLowerCase();
+        const email = fila.cells[2].textContent.toLowerCase();
+        const id = fila.cells[0].textContent.toLowerCase();
+        const rolFila = fila.cells[3].textContent.trim();
+        let mostrar = true;
+        if (busqueda && !(nombre.includes(busqueda) || email.includes(busqueda) || id.includes(busqueda))) {
+            mostrar = false;
+        }
+        if (rol && rol !== "" && rolFila !== rol) {
+            mostrar = false;
+        }
+        fila.style.display = mostrar ? '' : 'none';
+    }
+}
+</script>
+</div>

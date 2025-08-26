@@ -1,0 +1,624 @@
+<style>
+    /* Modo oscuro mejorado (igual que Usuario) */
+    .dark-theme {
+        background-color: #181a1b !important;
+        color: #e0e0e0 !important;
+    }
+    .dark-theme .container-fluid,
+    .dark-theme .card,
+    .dark-theme .modal-content {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+        border-color: #343a40 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    }
+    .dark-theme .card-header,
+    .dark-theme .card-body,
+    .dark-theme .modal-header,
+    .dark-theme .modal-body {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+    }
+    .dark-theme .bg-white,
+    .dark-theme .bg-light,
+    .dark-theme .card.h-100.border-0.bg-light,
+    .dark-theme .card.h-100.border-0.bg-white {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+        border-color: #444 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    }
+    .dark-theme .card-title,
+    .dark-theme .card-text,
+    .dark-theme .card-body.text-center {
+        color: #e0e0e0 !important;
+    }
+    .dark-theme .border-0,
+    .dark-theme .border-bottom {
+        border-color: #444 !important;
+    }
+    .dark-theme .btn,
+    .dark-theme .btn-outline-secondary,
+    .dark-theme .btn-outline-primary,
+    .dark-theme .btn-outline-success,
+    .dark-theme .btn-outline-info,
+    .dark-theme .btn-outline-danger {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+        border-color: #444 !important;
+    }
+    .dark-theme .btn:hover,
+    .dark-theme .btn-outline-secondary:hover,
+    .dark-theme .btn-outline-primary:hover,
+    .dark-theme .btn-outline-success:hover,
+    .dark-theme .btn-outline-info:hover,
+    .dark-theme .btn-outline-danger:hover {
+        background-color: #444 !important;
+        color: #fff !important;
+    }
+    .dark-theme .form-control,
+    .dark-theme .form-select {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+        border-color: #444 !important;
+    }
+    .dark-theme .form-control:focus,
+    .dark-theme .form-select:focus {
+        background-color: #23272b !important;
+        color: #fff !important;
+        border-color: #888 !important;
+        box-shadow: 0 0 0 0.2rem rgba(52,58,64,.25) !important;
+    }
+    .dark-theme .modal-content {
+        background-color: #23272b !important;
+        color: #e0e0e0 !important;
+    }
+</style>
+@model dynamic
+@{
+    ViewData["Title"] = "Configuración Usuarios";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="h3 mb-0">Configuración (Usuarios)</h2>
+                    <p class="text-muted mb-0">Personaliza tu experiencia como Usuario</p>
+                </div>
+                <a href="@Url.Action("Dashboard", "Usuario")" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-1"></i>Volver al Dashboard
+                </a>
+            </div>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-circle me-2"></i>@TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <!-- Configuración de Notificaciones -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                            <i class="bi bi-bell text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Notificaciones</h5>
+                            <p class="text-muted mb-0">Configura cómo quieres recibir notificaciones de Usuarios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                <label class="form-check-label" for="emailNotifications">
+                                    <strong>Notificaciones por Email</strong>
+                                    <br><small class="text-muted">Recibir notificaciones en tu correo electrónico</small>
+                                </label>
+                                    <input class="form-check-input" type="checkbox" id="emailNotifications" checked onchange="updateNotificationSetting('email', this.checked)">
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="smsNotifications" checked>
+                                <label class="form-check-label" for="smsNotifications">
+                                    <strong>Notificaciones por SMS</strong>
+                                    <br><small class="text-muted">Recibir notificaciones vía mensaje de texto</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="newTicketNotifications" checked>
+                                <label class="form-check-label" for="newTicketNotifications">
+                                    <strong>Nuevos Reclamos</strong>
+                                    <br><small class="text-muted">Notificar cuando se asigne un nuevo reclamo</small>
+                                </label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="responseNotifications" checked>
+                                <label class="form-check-label" for="responseNotifications">
+                                    <strong>Respuestas a Reclamos</strong>
+                                    <br><small class="text-muted">Notificar cuando respondas a un reclamo</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuración de Apariencia -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-success bg-opacity-10 p-3 rounded-circle me-3">
+                            <i class="bi bi-palette text-success fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Apariencia</h5>
+                            <p class="text-muted mb-0">Personaliza la interfaz de Usuario</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="darkMode">
+                                <label class="form-check-label" for="darkMode">
+                                    <strong>Modo Oscuro</strong>
+                                    <br><small class="text-muted">Activar tema oscuro para la interfaz</small>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="languageSelect" class="form-label"><strong>Idioma Preferido</strong></label>
+                                <select class="form-select" id="languageSelect">
+                                    <option value="es" selected>Español</option>
+                                    <option value="en">English</option>
+                                </select>
+                                <small class="form-text text-muted">Idioma de la interfaz de usuario</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuración de Privacidad -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-white border-0 py-3">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-warning bg-opacity-10 p-3 rounded-circle me-3">
+                            <i class="bi bi-shield-check text-warning fs-4"></i>
+                        </div>
+                        <div>
+                            <h5 class="card-title mb-0">Privacidad y Seguridad</h5>
+                            <p class="text-muted mb-0">Configuraciones de seguridad de tu cuenta Usuarios</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                                <div>
+                                    <strong>Cambiar Contraseña</strong>
+                                    <br><small class="text-muted">Actualiza tu contraseña de acceso</small>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#passwordModal">
+                                    <i class="bi bi-lock me-1"></i>Cambiar
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                                <div>
+                                    <strong>Autenticación de Dos Factores</strong>
+                                    <br><small class="text-muted">Añade una capa extra de seguridad</small>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="twoFactorAuth">
+                                    <label class="form-check-label" for="twoFactorAuth"></label>
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            const twoFactorCheckbox = document.getElementById('twoFactorAuth');
+                                            if (twoFactorCheckbox) {
+                                                twoFactorCheckbox.addEventListener('click', function(e) {
+                                                    e.preventDefault();
+                                                    this.checked = false;
+                                                    alert('Funcionalidad disponible próximamente');
+                                                });
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center py-2">
+                                <div>
+                                    <strong>Historial de Actividad</strong>
+                                    <br><small class="text-muted">Ver el registro de actividad de tu cuenta Usuarios</small>
+                                </div>
+                                <button class="btn btn-outline-info btn-sm" onclick="alert('Funcionalidad disponible próximamente')">
+                                    <i class="bi bi-clock-history me-1"></i>Ver Historial
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="d-flex justify-content-between pt-3">
+                <button type="button" class="btn btn-outline-danger" onclick="resetToDefaults()">
+                    <i class="bi bi-arrow-clockwise me-2"></i>Restaurar por Defecto
+                </button>
+                <div>
+                    <button type="button" class="btn btn-outline-secondary me-2" onclick="cancelSettings()">
+                        <i class="bi bi-x-circle me-1"></i>Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="saveSettings()">
+                        <i class="bi bi-check-circle me-1"></i>Guardar Configuración
+                    </button>
+                </div>
+            </div>
+
+           <!-- Acciones Rápidas -->
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 bg-light">
+                        <div class="card-body text-center">
+                            <i class="bi bi-person text-primary fs-1 mb-2"></i>
+                            <h6 class="card-title">Mi Perfil</h6>
+                            <p class="card-text text-muted small">Editar información personal</p>
+                            <a href="@Url.Action("MiPerfil", "Usuario")" class="btn btn-outline-primary btn-sm">Ver Perfil</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 bg-light">
+                        <div class="card-body text-center">
+                            <i class="bi bi-clipboard-data text-success fs-1 mb-2"></i>
+                            <h6 class="card-title">Mis Reclamos</h6>
+                            <p class="card-text text-muted small">Ver todos mis reclamos</p>
+                            <a href="@Url.Action("MisReclamos", "Usuario")" class="btn btn-outline-success btn-sm">Ver Reclamos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 border-0 bg-light">
+                        <div class="card-body text-center">
+                            <i class="bi bi-bell text-info fs-1 mb-2"></i>
+                            <h6 class="card-title">Notificaciones</h6>
+                            <p class="card-text text-muted small">Ver notificaciones de Usuarios</p>
+                            <a href="/Usuario/Notificaciones" class="btn btn-outline-info btn-sm">Ver Notificaciones</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para cambiar contraseña -->
+<div class="modal fade" id="passwordModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-lock me-2"></i>Cambiar Contraseña
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="passwordForm">
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña Actual</label>
+                        <input type="password" class="form-control" id="currentPassword" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="newPassword" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirmar Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword" required />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="changePassword()">Cambiar Contraseña</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function cancelSettings() {
+        window.location.href = '/Usuario/Dashboard'; // Ajusta la URL si tu ruta es diferente
+    }
+
+        // Función updateNotificationSetting eliminada
+
+    async function saveSettings() {
+        const settings = {
+            emailNotifications: document.getElementById('emailNotifications').checked,
+            smsNotifications: document.getElementById('smsNotifications').checked,
+            newTicketNotifications: document.getElementById('newTicketNotifications').checked,
+            responseNotifications: document.getElementById('responseNotifications').checked,
+            darkMode: document.getElementById('darkMode').checked,
+            language: document.getElementById('languageSelect').value,
+            twoFactorAuth: document.getElementById('twoFactorAuth').checked
+        };
+        try {
+            const response = await fetch('/Usuario/GuardarConfiguracion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': getAntiForgeryToken()
+                },
+                body: JSON.stringify(settings)
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                showMessage('Configuración guardada exitosamente', 'success');
+                setTimeout(function() {
+                    window.location.href = '/Usuario/Dashboard';
+                }, 1200);
+            } else {
+                showMessage(result.message || 'Error al guardar configuración', 'error');
+            }
+        } catch (error) {
+            showMessage('Error de conexión al guardar configuración', 'error');
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Eliminar mensajes de error al desactivar switches de comunicación
+        const switches = [
+            'emailNotifications',
+            'smsNotifications',
+            'newTicketNotifications',
+            'responseNotifications'
+        ];
+        switches.forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', function() {
+                    if (!this.checked) {
+                        document.querySelectorAll('.alert-danger').forEach(function(alerta) {
+                            alerta.remove();
+                        });
+                    }
+                });
+            }
+        });
+        const twoFactorCheckbox = document.getElementById('twoFactorAuth');
+        if (twoFactorCheckbox) {
+            twoFactorCheckbox.addEventListener('change', async function() {
+                if (this.checked) {
+                    await sendTwoFactorCode();
+                    const modal = new bootstrap.Modal(document.getElementById('twoFactorModal'));
+                    modal.show();
+                }
+            });
+        }
+            // Alerta al seleccionar inglés en idioma
+            const languageSelect = document.getElementById('languageSelect');
+            if (languageSelect) {
+                languageSelect.addEventListener('change', function() {
+                    if (this.value === 'en') {
+                        mostrarAlertaIdioma();
+                    }
+                });
+            }
+    });
+
+    function mostrarAlertaIdioma() {
+        // Elimina alerta previa si existe
+        const alertaExistente = document.getElementById('alertaIdioma');
+        if (alertaExistente) alertaExistente.remove();
+        // Crea alerta Bootstrap
+        const alerta = document.createElement('div');
+        alerta.className = 'alert alert-info alert-dismissible fade show mt-3';
+        alerta.id = 'alertaIdioma';
+        alerta.role = 'alert';
+        alerta.innerHTML = '<i class="bi bi-info-circle me-2"></i>Funcionalidad próxima a desarrollar<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+        // Inserta alerta debajo del select
+        const selectDiv = document.getElementById('languageSelect').closest('.mb-3');
+        if (selectDiv) {
+            selectDiv.parentNode.insertBefore(alerta, selectDiv.nextSibling);
+        } else {
+            document.body.appendChild(alerta);
+        }
+    }
+
+    async function sendTwoFactorCode() {
+        // Llamada al backend para enviar código (email/SMS)
+        try {
+            await fetch('/Usuario/EnviarCodigo2FA', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': getAntiForgeryToken()
+                }
+            });
+        } catch (error) {
+            showMessage('No se pudo enviar el código de verificación', 'error');
+        }
+    }
+
+    async function verifyTwoFactorCode() {
+        const code = document.getElementById('twoFactorCode').value;
+        if (!code || code.length !== 6) {
+            showMessage('Código inválido', 'error');
+            return;
+        }
+        try {
+            const response = await fetch('/Usuario/VerificarCodigo2FA', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': getAntiForgeryToken()
+                },
+                body: JSON.stringify({ code })
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                showMessage('Autenticación en dos factores activada', 'success');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('twoFactorModal'));
+                modal.hide();
+            } else {
+                showMessage(result.message || 'Código incorrecto', 'error');
+            }
+        } catch (error) {
+            showMessage('Error al verificar el código', 'error');
+        }
+    }
+
+    function resetToDefaults() {
+        if (confirm('¿Estás seguro de que quieres restaurar la configuración por defecto?')) {
+            document.getElementById('emailNotifications').checked = true;
+            document.getElementById('smsNotifications').checked = true;
+            document.getElementById('newTicketNotifications').checked = true;
+            document.getElementById('responseNotifications').checked = true;
+            document.getElementById('darkMode').checked = false;
+            document.getElementById('languageSelect').value = 'es';
+            document.getElementById('twoFactorAuth').checked = false;
+            showMessage('Configuración restaurada a valores por defecto', 'info');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    async function changePassword() {
+        const current = document.getElementById('currentPassword').value;
+        const newPass = document.getElementById('newPassword').value;
+        const confirm = document.getElementById('confirmPassword').value;
+        if (!current || !newPass || !confirm) {
+            showMessage('Todos los campos son obligatorios', 'error');
+            return;
+        }
+        if (newPass !== confirm) {
+            showMessage('Las contraseñas no coinciden', 'error');
+            return;
+        }
+        if (newPass.length < 6) {
+            showMessage('La contraseña debe tener al menos 6 caracteres', 'error');
+            return;
+        }
+        try {
+            const response = await fetch('/Usuario/CambiarContrasena', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': getAntiForgeryToken()
+                },
+                body: JSON.stringify({
+                    currentPassword: current,
+                    newPassword: newPass
+                })
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                showMessage('Contraseña cambiada exitosamente', 'success');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('passwordModal'));
+                modal.hide();
+                document.getElementById('passwordForm').reset();
+            } else {
+                // Nunca mostrar notificación de error si la contraseña actual es incorrecta
+                if (result.message && result.message.toLowerCase().includes('actual')) {
+                    return;
+                }
+                // Si hay otro error, mostrarlo
+                showMessage(result.message || 'Error al cambiar la contraseña', 'error');
+            }
+        } catch (error) {
+            showMessage('Error de conexión al cambiar la contraseña', 'error');
+        }
+    }
+
+    function showMessage(message, type) {
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+        const alertHTML = `
+            <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-2"></i>${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+        const container = document.querySelector('.container-fluid .row .col-lg-8');
+        container.insertAdjacentHTML('afterbegin', alertHTML);
+        setTimeout(() => {
+            const alert = container.querySelector('.alert');
+            if (alert) alert.remove();
+        }, 5000);
+    }
+
+    function getAntiForgeryToken() {
+        const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+        return tokenInput ? tokenInput.value : '';
+    }
+
+    function applyDarkModeGlobal(isDark) {
+        if (isDark) {
+            document.documentElement.classList.add('dark-theme');
+        } else {
+            document.documentElement.classList.remove('dark-theme');
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const darkModeCheckbox = document.getElementById('darkMode');
+        const darkMode = localStorage.getItem('darkMode') === 'true';
+        darkModeCheckbox.checked = darkMode;
+        applyDarkModeGlobal(darkMode);
+        darkModeCheckbox.addEventListener('change', function() {
+            localStorage.setItem('darkMode', this.checked);
+            applyDarkModeGlobal(this.checked);
+        });
+        // 2FA checked: alerta próxima a desarrollar
+        const twoFactorCheckbox = document.getElementById('twoFactorAuth');
+        if (twoFactorCheckbox) {
+            twoFactorCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    mostrarAlertaProxima();
+                }
+            });
+        }
+    });
+
+    function mostrarAlertaProxima() {
+        // Elimina alerta previa si existe
+        const alertaExistente = document.getElementById('alertaProxima2FA');
+        if (alertaExistente) alertaExistente.remove();
+        // Crea alerta Bootstrap
+        const alerta = document.createElement('div');
+        alerta.className = 'alert alert-info alert-dismissible fade show mt-3';
+        alerta.id = 'alertaProxima2FA';
+        alerta.role = 'alert';
+        alerta.innerHTML = '<i class="bi bi-info-circle me-2"></i>Funcionalidad próxima a desarrollar<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+        // Inserta alerta debajo del switch
+        const switchDiv = document.getElementById('twoFactorAuth').closest('.d-flex');
+        if (switchDiv) {
+            switchDiv.parentNode.insertBefore(alerta, switchDiv.nextSibling);
+        } else {
+            document.body.appendChild(alerta);
+        }
+    }
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

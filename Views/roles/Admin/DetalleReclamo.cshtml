@@ -1,0 +1,235 @@
+@model SupportWeb.Models.ViewModels.ReclamoDetailsViewModel
+@{
+    ViewData["Title"] = "Detalle del Reclamo - Admin";
+}
+
+<div class="container-fluid py-4">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                    <div>
+                        <h2 class="text-primary mb-0">
+                            <i class="fas fa-file-alt me-2"></i>Detalle del Reclamo (Admin)
+                        </h2>
+                        <p class="text-muted mb-0">Gestión completa del reclamo</p>
+                    </div>
+                    <div class="d-flex flex-row align-items-center gap-2">
+
+                        <a href="@Url.Action("GestionReclamos", "Admin")" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>Volver
+                        </a>
+                        @if (Model.PuedeEditarEstado)
+                        {
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn cambiar-estado-btn dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-edit me-1"></i>Cambiar Estado
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @foreach (var estado in Model.EstadosDisponibles)
+                                    {
+                                        if (!string.Equals(estado, "En Proceso", StringComparison.OrdinalIgnoreCase) && !string.Equals(estado, "EnProceso", StringComparison.OrdinalIgnoreCase))
+                                        {
+                                            <li>
+                                                <form method="post" action="@Url.Action("ActualizarEstadoReclamo", "Admin")" class="d-inline">
+                                                    <input type="hidden" name="reclamoId" value="@Model.Reclamo.Id" />
+                                                    <input type="hidden" name="nuevoEstado" value="@estado" />
+                                                    <button type="submit" class="dropdown-item @(Model.Reclamo.Estado == estado ? "active" : "")">
+                                                        @estado
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <form method="post" action="@Url.Action("EliminarReclamo", "Admin")" class="d-inline"
+                                  onsubmit="return confirm('¿Estás seguro de que deseas eliminar este reclamo?')">
+                                <input type="hidden" name="reclamoId" value="@Model.Reclamo.Id" />
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash me-1"></i>Eliminar
+                                </button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>@TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Reclamo Details -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>Información del Reclamo
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>ID:</strong></div>
+                        <div class="col-sm-9"><code>@Model.Reclamo.Id</code></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Título:</strong></div>
+                        <div class="col-sm-9">@Model.Reclamo.Titulo</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Estado:</strong></div>
+                        <div class="col-sm-9">
+                            <span class="badge bg-@(
+                                    Model.Reclamo.Estado == "Respondido" ? "light text-dark" :
+                                    Model.Reclamo.Estado == "Nuevo" ? "primary" :
+                                    Model.Reclamo.Estado == "Cerrado" ? "secondary" :
+                                    "secondary"
+                            )">
+                                @Model.Reclamo.Estado
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Prioridad:</strong></div>
+                        <div class="col-sm-9">
+                            <span class="badge bg-@(
+                                Model.Reclamo.Prioridad == "Alta" ? "danger" :
+                                Model.Reclamo.Prioridad == "Media" ? "warning" :
+                                Model.Reclamo.Prioridad == "Baja" ? "secondary" :
+                                "secondary"
+                            )">
+                                @Model.Reclamo.Prioridad
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Usuario:</strong></div>
+                        <div class="col-sm-9">@Model.Reclamo.UsuarioNombre</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Fecha de Creación:</strong></div>
+                        <div class="col-sm-9">@Model.Reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Descripción:</strong></div>
+                        <div class="col-sm-9">
+                            <div class="border rounded p-3 bg-light">
+                                @Html.Raw(Html.Encode(Model.Reclamo.Descripcion).Replace("\n", "<br />"))
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sin archivo adjunto: se eliminan referencias a ArchivoUrl y ArchivoRuta -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Respuestas -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-comments me-2"></i>Respuestas (@Model.Respuestas.Count)
+                    </h5>
+                </div>
+                <div class="card-body p-0" style="max-height: 400px; overflow-y: auto;">
+                    @if (Model.Respuestas.Any())
+                    {
+                        @foreach (var respuesta in Model.Respuestas)
+                        {
+                            <div class="border-bottom p-3">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <small class="text-muted">
+                                        <i class="fas fa-user me-1"></i>@respuesta.UsuarioNombre
+                                    </small>
+                                    <small class="text-muted">
+                                        @respuesta.FechaRespuesta.ToString("dd/MM/yyyy HH:mm")
+                                    </small>
+                                </div>
+                                <div class="response-content">
+                                    @Html.Raw(Html.Encode(respuesta.Contenido).Replace("\n", "<br />"))
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="p-3 text-center text-muted">
+                            <i class="fas fa-comment-slash fa-2x mb-2"></i>
+                            <p class="mb-0">No hay respuestas aún</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Nueva Respuesta -->
+            @if (Model.PuedeResponder)
+            {
+                <div class="card shadow-sm mt-3">
+                    <div class="card-header bg-success text-white">
+                        <h6 class="mb-0">
+                            <i class="fas fa-reply me-2"></i>Agregar Respuesta
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="@Url.Action("NuevaRespuesta", "Admin")">
+                            <input type="hidden" name="ReclamoId" value="@Model.Reclamo.Id" />
+                            <div class="mb-3">
+                                <textarea name="Contenido" class="form-control" rows="4"
+                                         placeholder="Escribe tu respuesta aquí..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="fas fa-paper-plane me-1"></i>Enviar Respuesta
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .response-content {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    }
+
+    .badge {
+        font-size: 0.8rem;
+    }
+</style>
+<style>
+    .cambiar-estado-btn {
+        background-color: #adb5bd !important;
+        border-color: #adb5bd !important;
+        color: #fff !important;
+    }
+    .cambiar-estado-btn:hover,
+    .cambiar-estado-btn:focus {
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+        color: #fff !important;
+    }
+</style>

@@ -1,0 +1,72 @@
+@model SupportWeb.Models.ViewModels.Soporte.DetalleReclamoViewModel
+@{
+    ViewData["Title"] = "Detalle del Reclamo";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Detalle del Reclamo: @Model.Reclamo.Titulo</h4>
+                    <p class="text-muted">ID: @Model.Reclamo.Id</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Estado:</strong>
+                                <span class="badge bg-@(
+                                    Model.Reclamo.Estado == "Nuevo" ? "primary" :        // azul
+                                    Model.Reclamo.Estado == "EnProceso" ? "warning" :    // naranja
+                                    Model.Reclamo.Estado == "Respondido" ? "info" :      // celeste
+                                    Model.Reclamo.Estado == "Cerrado" ? "secondary" :    // gris
+                                    "secondary")">
+                                    @Model.Reclamo.Estado
+                                </span>
+                            </p>
+                            <p><strong>Prioridad:</strong>
+                                <span class="badge bg-@(
+                                    Model.Reclamo.Prioridad == "Alta" ? "danger" :       // rojo
+                                    Model.Reclamo.Prioridad == "Urgente" ? "danger" :    // rojo
+                                    Model.Reclamo.Prioridad == "Media" ? "warning" :     // naranja
+                                    Model.Reclamo.Prioridad == "Baja" ? "secondary" :    // gris
+                                    "secondary")">
+                                    @Model.Reclamo.Prioridad
+                                </span>
+                            </p>
+                            <p><strong>Fecha de Creación:</strong> @Model.Reclamo.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Descripción:</strong></p>
+                            <p>@Model.Reclamo.Descripcion</p>
+                        </div>
+                    </div>
+
+                    @if (Model.Respuestas.Any())
+                    {
+                        <h5 class="mt-4">Respuestas</h5>
+                        <div class="chat-container">
+                            @foreach (var respuesta in Model.Respuestas)
+                            {
+                                <div class="message mb-3 p-3 border rounded">
+                                    <div class="message-header d-flex justify-content-between">
+                                        <strong>Respuesta de Soporte</strong>
+                                        <small class="text-muted">@respuesta.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</small>
+                                    </div>
+                                    <div class="message-body mt-2">
+                                        @respuesta.Mensaje
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                    <div class="mt-4">
+                        <a href="@Url.Action("GestionReclamos", "Soporte")" class="btn btn-secondary">Volver</a>
+                        <a href="/Soporte/NuevaRespuestaPorId/@Model.Reclamo.Id" class="btn btn-outline-danger">Responder</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,551 @@
+@using SupportWeb.Models.ViewModels.Admin
+@model SupportWeb.Models.ViewModels.Admin.ReportesViewModel
+@{
+    ViewData["Title"] = "Reportes y Estadísticas";
+}
+
+<div class="reportes-admin" style="background: linear-gradient(135deg, #f8fafc 60%, #e3f0ff 100%); min-height: 100vh;">
+    <style>
+        .reportes-admin { font-size: 0.945rem; }
+        .card { font-size: 0.945em; }
+        .card-header { letter-spacing: 0.5px; padding: 0.735em 1.155em; min-height: 52.5px !important; }
+        .card-title { font-size: 1.1025em; }
+        .card-title i { filter: drop-shadow(0 2px 2px #0002); font-size: 1.155em; }
+        .badge { font-size: 0.945rem; padding: 0.4725em 0.945em; }
+        .navbar .badge#notification-count {
+            font-size: 0.8085rem !important;
+            padding: 0.231em 0.567em !important;
+            min-width: 1.134em;
+        }
+        .reportes-admin ul li { transition: background 0.2s, color 0.2s; border-radius: 6px; padding: 1.89px 7.56px; font-size: 0.945em; }
+        .reportes-admin ul li:hover { background: #e3f0ff; color: #0d6efd; font-weight: 500; }
+        .reportes-admin .card-body { position: relative; padding: 1.155em 1.155em; }
+        .chart-tooltip { position: absolute; z-index: 10; background: #fff; color: #333; border-radius: 8px; box-shadow: 0 2px 8px #0002; padding: 7.35px 14.7px; font-size: 0.945rem; pointer-events: none; display: none; }
+        .reportes-admin .card-header { border-bottom: 2px solid #e3f0ff; }
+        .form-label { font-size: 0.945em; }
+        .form-control, .form-select { font-size: 0.945em; height: 2.205em; padding: 0.3675em 0.735em; }
+        .btn { font-size: 0.945em; padding: 0.4725em 0.945em; }
+        .row.g-3 > [class^='col-'] { padding-right: 0.945em; padding-left: 0.945em; }
+        .mb-4 { margin-bottom: 1.89rem !important; }
+        .mb-3 { margin-bottom: 0.945rem !important; }
+        .me-2 { margin-right: 0.189rem !important; }
+        .gap-3 { gap: 1.134rem !important; }
+    </style>
+
+    <!-- Título principal -->
+    <div class="row mb-4">
+        <div class="col-12 d-flex align-items-center gap-3">
+            <span style="font-size: 2.5rem; filter: drop-shadow(0 2px 4px #aaa);">📊</span>
+            <h2 class="h3 mb-0 text-primary fw-bold">Reportes y Estadísticas Avanzadas</h2>
+        </div>
+        <div class="col-12">
+            <p class="text-muted mb-0">Panel completo de <span class="fw-bold text-info">análisis</span> y <span class="fw-bold text-success">sobre reclamos y respuestas</span></p>
+        </div>
+    </div>
+
+    <!-- Filtros avanzados -->
+    <div class="card mb-4 border-primary shadow-sm">
+        <div class="card-header bg-primary bg-gradient text-white border-0">
+            <h5 class="card-title mb-0"><i class="bi bi-funnel-fill me-2"></i>Filtros Avanzados</h5>
+        </div>
+        <div class="card-body">
+            <form id="filtrosReportes" method="get">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Fecha desde</label>
+                        <input type="date" class="form-control" name="fechaDesde" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Fecha hasta</label>
+                        <input type="date" class="form-control" name="fechaHasta" />
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Usuario</label>
+                        <select class="form-select" name="usuarioId">
+                            <option value="">Todos</option>
+                            @foreach (var usuario in Model.Usuarios)
+                            {
+                                <option value="@usuario.Id">@usuario.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Estado</label>
+                        <select class="form-select" name="estado">
+                            <option value="">Todos</option>
+                            <option value="Nuevo">Sin responder</option>
+                            <option value="EnProceso">En Proceso</option>
+                            <option value="Respondido">Respondido</option>
+                            <option value="Cerrado">Cerrado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Prioridad</label>
+                        <select class="form-select" name="prioridad">
+                            <option value="">Todas</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Tipo de Reclamo</label>
+                        <select class="form-select" name="tipo">
+                            <option value="">Todos</option>
+                            @foreach (var tipo in Model.TiposReclamo)
+                            {
+                                <option value="@tipo">@tipo</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Área/Departamento</label>
+                        <select class="form-select" name="area">
+                            <option value="">Todos</option>
+                            @foreach (var area in Model.Areas)
+                            {
+                                <option value="@area">@area</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100"><i class="bi bi-search me-1"></i>Filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Badges de filtros -->
+    <div class="row mb-4">
+        <div class="col-12 mb-2">
+            <div class="d-flex gap-3">
+                <span class="badge bg-primary">Mes</span>
+                <span class="badge bg-success">Usuario</span>
+                <span class="badge bg-danger text-white">Prioridad</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráficos comparativos -->
+
+    <div class="row mb-4">
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #fff8f0;">
+                <div class="card-header bg-danger bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Reclamos por Prioridad</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var prioridad in Model.ReclamosPorPrioridad)
+                        {
+                            <li><strong>@prioridad.Key:</strong> @prioridad.Value reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="reclamosPorPrioridadChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #f0f8ff;">
+                <div class="card-header bg-info bg-gradient text-dark border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-tags me-2"></i>Reclamos por Tipo</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var tipo in Model.ReclamosPorTipo)
+                        {
+                            <li><strong>@tipo.Key:</strong> @tipo.Value reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="reclamosPorTipoChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="row mb-4">
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #f0f8ff;">
+                <div class="card-header bg-primary bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-calendar-event me-2"></i>Reclamos por Mes</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @{
+                            var mesesEjemplo = new List<(string, int)> {
+                                ("2025-05", 8),
+                                ("2025-06", 17),
+                                ("2025-07", 11),
+                                ("2025-08", 14)
+                            };
+                        }
+                        @foreach (var mes in mesesEjemplo)
+                        {
+                            <li><strong>@mes.Item1:</strong> @mes.Item2 reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="reclamosPorMesChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #f8fff0;">
+                <div class="card-header bg-success bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-person-lines-fill me-2"></i>Reclamos por Usuario</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @{
+                            var usuariosEjemplo = new List<(string, int)> {
+                                ("Juan Pérez", 12),
+                                ("Ana Gómez", 9),
+                                ("Carlos Ruiz", 7),
+                                ("Lucía Torres", 5),
+                                ("Franco Díaz", 3)
+                            };
+                        }
+                        @foreach (var usuario in usuariosEjemplo)
+                        {
+                            <li><strong>@usuario.Item1:</strong> @usuario.Item2 reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="reclamosPorUsuarioChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tiempos y rankings -->
+    <div class="row mb-4">
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #e3ffe3;">
+                <div class="card-header bg-success bg-gradient text-white border-0 pb-0">
+                    <h5 class="card-title mb-0"><i class="bi bi-clock-history me-2"></i>Tiempos Promedio de Resolución</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Promedio:</strong> @Model.TiempoPromedioResolucion días</p>
+                    <canvas id="tiemposResolucionChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #fff0f8;">
+                <div class="card-header bg-danger bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-trophy me-2"></i>Ranking de Usuarios con Más Reclamos</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @{
+                            var rankingUsuariosEjemplo = new List<(string, int)> {
+                                ("Juan Pérez", 15),
+                                ("Ana Gómez", 13),
+                                ("Carlos Ruiz", 10),
+                                ("Lucía Torres", 8),
+                                ("Franco Díaz", 6)
+                            };
+                        }
+                        @foreach (var usuario in rankingUsuariosEjemplo)
+                        {
+                            <li><strong>@usuario.Item1:</strong> @usuario.Item2 reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="rankingUsuariosChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #e3f0ff;">
+                <div class="card-header bg-primary bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-star me-2"></i>Ranking de Soporte Más Eficiente</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        @{
+                            var rankingSoporteEjemplo = new List<(string, int)> {
+                                ("Soporte Lucia", 18),
+                                ("Soporte Franco", 16),
+                                ("Soporte Carla", 12),
+                                ("Soporte Pablo", 9)
+                            };
+                        }
+                        @foreach (var soporte in rankingSoporteEjemplo)
+                        {
+                            <li><strong>@soporte.Item1:</strong> @soporte.Item2 reclamos</li>
+                        }
+                    </ul>
+                    <canvas id="rankingSoporteChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="card border-0 shadow-sm h-100" style="background: #f8fff0;">
+                <div class="card-header bg-success bg-gradient text-white border-0 pb-0 d-flex align-items-center" style="min-height:56px;">
+                    <h5 class="card-title mb-0"><i class="bi bi-check-circle me-2"></i>Porcentaje de Reclamos Resueltos en Tiempo</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Resueltos en tiempo:</strong> 86 %</p>
+                    <canvas id="reclamosEnTiempoChart" style="max-height:207.9px;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function customTooltip(context) {
+            var tooltipModel = context.tooltip;
+            var chart = context.chart.canvas;
+            var tooltipEl = document.getElementById('chartjs-tooltip');
+            if (!tooltipEl) {
+                tooltipEl = document.createElement('div');
+                tooltipEl.id = 'chartjs-tooltip';
+                tooltipEl.className = 'chart-tooltip';
+                chart.parentNode.appendChild(tooltipEl);
+            }
+            if (tooltipModel.opacity === 0) {
+                tooltipEl.style.display = 'none';
+                return;
+            }
+            tooltipEl.style.display = 'block';
+            tooltipEl.innerHTML = tooltipModel.body ? tooltipModel.body.map(b => b.lines).join('<br>') : '';
+            var position = chart.getBoundingClientRect();
+            tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 20 + 'px';
+            tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 10 + 'px';
+        }
+
+        function chartOptions({legend=true, type='bar'}) {
+            return {
+                animation: {
+                    duration: 1200,
+                    easing: 'easeOutBounce'
+                },
+                plugins: {
+                    legend: { display: legend, position: 'bottom' },
+                    tooltip: {
+                        enabled: false,
+                        external: customTooltip
+                    }
+                },
+                hover: { mode: 'nearest', intersect: true },
+                scales: type==='bar' ? { y: { beginAtZero: true } } : {}
+            };
+        }
+
+        // Reclamos por Mes
+        new Chart(document.getElementById('reclamosPorMesChart'), {
+            type: 'bar',
+            data: {
+                labels: ["2025-05", "2025-06", "2025-07", "2025-08"],
+                datasets: [{
+                    label: 'Reclamos',
+                    data: [8, 17, 11, 14],
+                    backgroundColor: '#0d6efd',
+                    borderRadius: 8,
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: chartOptions({legend:false, type:'bar'})
+        });
+
+        // Reclamos por Usuario
+        const usuarioLabels = ["Juan Pérez", "Ana Gómez", "Carlos Ruiz", "Lucía Torres", "Franco Díaz"];
+        const usuarioData = [12, 9, 7, 5, 3];
+        const usuarioColors = [
+            "#2563eb", // Juan Pérez - azul moderno
+            "#22c55e", // Ana Gómez - verde vibrante
+            "#f59e42", // Carlos Ruiz - naranja suave
+            "#a21caf", // Lucía Torres - violeta intenso
+            "#e11d48"  // Franco Díaz - rojo moderno
+        ];
+        new Chart(document.getElementById('reclamosPorUsuarioChart'), {
+            type: 'doughnut',
+            data: {
+                labels: usuarioLabels,
+                datasets: [{
+                    label: 'Reclamos',
+                    data: usuarioData,
+                    backgroundColor: usuarioColors,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions({legend:true, type:'doughnut'})
+        });
+
+        // Reclamos por Prioridad
+        new Chart(document.getElementById('reclamosPorPrioridadChart'), {
+            type: 'pie',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ReclamosPorPrioridad.Keys)),
+                datasets: [{
+                    label: 'Reclamos',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ReclamosPorPrioridad.Values)),
+                    backgroundColor: ['#dc3545', '#ffc107', '#0d6efd'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions({legend:true, type:'pie'})
+        });
+
+        // Reclamos por Tipo
+        new Chart(document.getElementById('reclamosPorTipoChart'), {
+            type: 'polarArea',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ReclamosPorTipo.Keys)),
+                datasets: [{
+                    label: 'Reclamos',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ReclamosPorTipo.Values)),
+                    backgroundColor: ['#0dcaf0', '#ffc107', '#dc3545'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions({legend:true, type:'polarArea'})
+        });
+
+        // Tiempos de resolución
+        new Chart(document.getElementById('tiemposResolucionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Promedio'],
+                datasets: [{
+                    label: 'Días',
+                    data: [@Model.TiempoPromedioResolucion],
+                    backgroundColor: '#198754',
+                    borderRadius: 8,
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: chartOptions({legend:false, type:'bar'})
+        });
+
+        // Ranking Usuarios
+            new Chart(document.getElementById('rankingUsuariosChart'), {
+                type: 'bar',
+                data: {
+                    labels: ["Juan Pérez", "Ana Gómez", "Carlos Ruiz", "Lucía Torres", "Franco Díaz"],
+                    datasets: [{
+                        label: 'Reclamos',
+                        data: [15, 13, 10, 8, 6],
+                        backgroundColor: ["#0d6efd", "#198754", "#ffc107", "#6f42c1", "#fd7e14"],
+                        borderRadius: 8,
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: chartOptions({legend:false, type:'bar'})
+            });
+
+        // Ranking Soporte
+            const soporteLabels = ["Soporte Lucia", "Soporte Franco", "Soporte Carla", "Soporte Pablo"];
+            const soporteData = [18, 16, 12, 9];
+            const soporteColors = ["#0d6efd", "#198754", "#ffc107", "#fd7e14"];
+            new Chart(document.getElementById('rankingSoporteChart'), {
+                type: 'bar',
+                data: {
+                    labels: soporteLabels,
+                    datasets: [{
+                        label: 'Reclamos',
+                        data: soporteData,
+                        backgroundColor: soporteColors,
+                        borderRadius: 8,
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: chartOptions({legend:false, type:'bar'})
+            });
+
+        // Reclamos en tiempo
+        new Chart(document.getElementById('reclamosEnTiempoChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Resueltos en tiempo', 'Fuera de tiempo'],
+                datasets: [{
+                    label: 'Porcentaje',
+                    data: [@Model.PorcentajeResueltosEnTiempo, 100-@Model.PorcentajeResueltosEnTiempo],
+                    backgroundColor: ['#198754', '#dc3545'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions({legend:true, type:'doughnut'})
+        });
+
+        // Evolución histórica
+        new Chart(document.getElementById('evolucionHistoricaChart'), {
+            type: 'line',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.EvolucionHistorica != null ? Model.EvolucionHistorica.Select(e => e.Fecha) : new List<string>())),
+                datasets: [{
+                    label: 'Reclamos',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.EvolucionHistorica != null ? Model.EvolucionHistorica.Select(e => e.Cantidad) : new List<int>())),
+                    borderColor: '#0d6efd',
+                    backgroundColor: 'rgba(13,110,253,0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#0d6efd',
+                    pointRadius: 7,
+                    pointHoverRadius: 12,
+                    borderWidth: 3
+                }]
+            },
+            options: Object.assign(chartOptions({legend:false, type:'line'}), {
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false, external: customTooltip }
+                },
+                animation: { duration: 1500, easing: 'easeInOutQuart' }
+            })
+        });
+
+        // Mapa de calor
+        new Chart(document.getElementById('mapaCalorChart'), {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize<List<string>>(Model.MapaCalor != null ? Model.MapaCalor.Keys.ToList() : new List<string>())),
+                datasets: [{
+                    label: 'Actividad',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize<List<int>>(Model.MapaCalor != null ? Model.MapaCalor.Values.ToList() : new List<int>())),
+                    backgroundColor: '#ffc107',
+                    borderRadius: 8,
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: chartOptions({legend:false, type:'bar'})
+        });
+
+        // Satisfacción
+        new Chart(document.getElementById('satisfaccionChart'), {
+            type: 'pie',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize<List<string>>(Model.Satisfaccion != null ? Model.Satisfaccion.Keys.ToList() : new List<string>())),
+                datasets: [{
+                    label: 'Satisfacción',
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize<List<double>>(Model.Satisfaccion != null ? Model.Satisfaccion.Values.ToList() : new List<double>())),
+                    backgroundColor: ['#198754', '#0d6efd', '#ffc107'],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartOptions({legend:true, type:'pie'})
+        });
+    });
+
+    function exportarReporte() {
+        alert('Función de exportar a Excel en desarrollo');
+    }
+    function exportarPDF() {
+        alert('Función de exportar a PDF en desarrollo');
+    }
+</script>
